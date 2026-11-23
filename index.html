@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ren Akabane (@ren_akabane) — Lives de Soulslike & Action RPG</title>
-  <meta name="description" content="Site oficial de Ren Akabane (@ren_akabane). Lives ao vivo no YouTube de Phantom Blade Zero, Elden Ring, Code Vein e jogos desafiadores." />
+  <meta name="description" content="Site oficial de Ren Akabane (@ren_akabane). Lives ao vivo no YouTube de Phantom Blade Zero, Onimusha, Elden Ring, Code Vein e jogos desafiadores." />
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -30,13 +30,13 @@
           colors: {
             obsidian: '#070b14',
             abyss: '#0c1324',
-            neonblue: '#00d4ff',
+            neonblue: '#00d2ff',
             electric: '#3b82f6',
-            crimson: '#ff2a5f',
+            crimson: '#e11d48',
           },
           boxShadow: {
-            'neon-blue': '0 0 25px rgba(0, 212, 255, 0.25)',
-            'neon-crimson': '0 0 25px rgba(255, 42, 95, 0.28)',
+            'neon-blue': '0 0 25px rgba(0, 210, 255, 0.25)',
+            'neon-crimson': '0 0 25px rgba(225, 29, 72, 0.28)',
           },
           animation: {
             'pulse-slow': 'pulse 3.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
@@ -69,34 +69,29 @@
       transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
     }
 
-
-    .glass-crimson {
-      background: linear-gradient(145deg, rgba(24, 14, 28, 0.85), rgba(7, 11, 20, 0.92));
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(255, 42, 95, 0.35);
-      box-shadow: 0 0 35px rgba(255, 42, 95, 0.14);
-    }
-
-    /* Grade sutil de fundo */
-    .bg-cyber-grid {
-      background-image:
-        radial-gradient(circle at 18% 15%, rgba(0, 212, 255, 0.12) 0%, transparent 42%),
-        radial-gradient(circle at 82% 22%, rgba(255, 42, 95, 0.1) 0%, transparent 40%),
-        linear-gradient(rgba(59, 130, 246, 0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(59, 130, 246, 0.04) 1px, transparent 1px);
-      background-size: 100% 100%, 100% 100%, 44px 44px, 44px 44px;
-    }
-
-    /* Brilho no emblema SVG */
-
     .glass-card:hover {
       border-color: rgba(0, 210, 255, 0.45);
       box-shadow: 0 10px 30px -10px rgba(0, 210, 255, 0.2);
     }
 
+    .glass-crimson {
+      background: linear-gradient(145deg, rgba(24, 14, 28, 0.85), rgba(7, 11, 20, 0.92));
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(225, 29, 72, 0.35);
+      box-shadow: 0 0 35px rgba(225, 29, 72, 0.12);
+    }
 
     /* Grade sutil de fundo */
+    .bg-cyber-grid {
+      background-image:
+        radial-gradient(circle at 18% 15%, rgba(0, 210, 255, 0.12) 0%, transparent 42%),
+        radial-gradient(circle at 82% 22%, rgba(225, 29, 72, 0.1) 0%, transparent 40%),
+        linear-gradient(rgba(59, 130, 246, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(59, 130, 246, 0.04) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 44px 44px, 44px 44px;
+    }
+
     /* Brilho no emblema SVG */
     .wolf-glow {
       filter: drop-shadow(0 0 12px rgba(0, 210, 255, 0.65));
@@ -123,7 +118,7 @@
   <!-- Canvas de Partículas Sutis -->
   <canvas id="particle-canvas" class="fixed inset-0 pointer-events-none z-0 opacity-60"></canvas>
 
-  <!-- Toast de Notificação (Substitui alert()) -->
+  <!-- Toast de Notificação -->
   <div id="toast-notification" class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none">
     <div class="glass-card border-neonblue/60 px-4 py-3 rounded-xl flex items-center gap-3 shadow-neon-blue">
       <div class="w-8 h-8 rounded-lg bg-neonblue/20 text-neonblue flex items-center justify-center">
@@ -201,7 +196,7 @@
               @ren_akabane &bull; Soulslike, Action RPG &amp; Desafios no Parry
             </p>
             <p class="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-              Transmissões ao vivo em Português (PT-BR) focadas em combates frenéticos, chefes implacáveis e jornadas completas no limite da habilidade. Acompanhe simultaneamente no <strong class="text-white">YouTube</strong>.
+              Transmissões ao vivo em Português (PT-BR) focadas em combates frenéticos, chefes implacáveis e jornadas completas no limite da habilidade. Acompanhe ao vivo no <strong class="text-white">YouTube</strong>.
             </p>
           </div>
 
@@ -215,10 +210,9 @@
               <i class="fa-brands fa-discord text-lg"></i>
               <span>Comunidade Discord</span>
             </a>
-
             <a href="https://www.instagram.com/bruno.riverwolf" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-4 py-3 rounded-xl glass-card text-slate-200 hover:text-neonblue font-tech font-bold text-base transition transform hover:-translate-y-0.5">
               <i class="fa-brands fa-instagram text-lg text-pink-400"></i>
-              <span>@ren_akabane</span>
+              <span>Instagram</span>
             </a>
           </div>
         </div>
@@ -397,7 +391,7 @@
                 <i class="fa-solid fa-square-poll-vertical"></i>
                 Enquete da Comunidade
               </span>
-              <span id="total-votes-badge" class="text-xs font-tech text-slate-400">142 votos</span>
+              <span id="total-votes-badge" class="text-xs font-tech text-slate-400">160 votos</span>
             </div>
 
             <div>
@@ -413,27 +407,40 @@
             <div class="space-y-3 pt-1">
               <!-- Opção 1: Elden Ring (Shadow of the Erdtree) -->
               <button type="button" onclick="castVote('elden')" id="vote-btn-elden" class="w-full text-left p-3.5 rounded-xl bg-slate-900/90 border border-slate-700/80 hover:border-amber-400/60 transition relative overflow-hidden group cursor-pointer">
-                <div id="bar-elden" class="absolute inset-y-0 left-0 bg-amber-500/15 transition-all duration-500" style="width: 58%;"></div>
+                <div id="bar-elden" class="absolute inset-y-0 left-0 bg-amber-500/15 transition-all duration-500" style="width: 40%;"></div>
                 <div class="relative z-10 flex items-center justify-between gap-2">
                   <div class="flex items-center gap-2.5 flex-wrap">
                     <i class="fa-solid fa-ring text-amber-400"></i>
                     <span class="font-tech font-bold text-white text-base">Elden Ring <span class="text-xs text-amber-300/90 font-semibold">(Shadow of the Erdtree)</span></span>
                     <span id="check-elden" class="hidden text-xs px-2 py-0.5 rounded bg-amber-400/20 text-amber-300 font-tech font-bold">Seu voto</span>
                   </div>
-                  <span id="pct-elden" class="font-display font-bold text-sm text-amber-300 shrink-0">58%</span>
+                  <span id="pct-elden" class="font-display font-bold text-sm text-amber-300 shrink-0">40%</span>
                 </div>
               </button>
 
               <!-- Opção 2: Code Vein -->
               <button type="button" onclick="castVote('codevein')" id="vote-btn-codevein" class="w-full text-left p-3.5 rounded-xl bg-slate-900/90 border border-slate-700/80 hover:border-crimson/60 transition relative overflow-hidden group cursor-pointer">
-                <div id="bar-codevein" class="absolute inset-y-0 left-0 bg-crimson/15 transition-all duration-500" style="width: 42%;"></div>
+                <div id="bar-codevein" class="absolute inset-y-0 left-0 bg-crimson/15 transition-all duration-500" style="width: 26%;"></div>
                 <div class="relative z-10 flex items-center justify-between gap-2">
                   <div class="flex items-center gap-2.5 flex-wrap">
                     <i class="fa-solid fa-droplet text-crimson"></i>
                     <span class="font-tech font-bold text-white text-base">Code Vein</span>
                     <span id="check-codevein" class="hidden text-xs px-2 py-0.5 rounded bg-crimson/20 text-crimson font-tech font-bold">Seu voto</span>
                   </div>
-                  <span id="pct-codevein" class="font-display font-bold text-sm text-rose-300 shrink-0">42%</span>
+                  <span id="pct-codevein" class="font-display font-bold text-sm text-rose-300 shrink-0">26%</span>
+                </div>
+              </button>
+
+              <!-- Opção 3: Onimusha: Way of the Sword -->
+              <button type="button" onclick="castVote('onimusha')" id="vote-btn-onimusha" class="w-full text-left p-3.5 rounded-xl bg-slate-900/90 border border-slate-700/80 hover:border-cyan-400/60 transition relative overflow-hidden group cursor-pointer">
+                <div id="bar-onimusha" class="absolute inset-y-0 left-0 bg-cyan-500/15 transition-all duration-500" style="width: 34%;"></div>
+                <div class="relative z-10 flex items-center justify-between gap-2">
+                  <div class="flex items-center gap-2.5 flex-wrap">
+                    <i class="fa-solid fa-torii-gate text-cyan-400"></i>
+                    <span class="font-tech font-bold text-white text-base">Onimusha: Way of the Sword</span>
+                    <span id="check-onimusha" class="hidden text-xs px-2 py-0.5 rounded bg-cyan-400/20 text-cyan-300 font-tech font-bold">Seu voto</span>
+                  </div>
+                  <span id="pct-onimusha" class="font-display font-bold text-sm text-cyan-300 shrink-0">34%</span>
                 </div>
               </button>
             </div>
@@ -459,7 +466,7 @@
             GRADE DE TRANSMISSÕES
           </h2>
           <p class="text-slate-400 text-sm mt-1">
-            Horários fixos no fuso de Brasília (BRT / UTC-3) com transmissão no YouTube.
+            Horários fixos no fuso de Brasília (BRT / UTC-3) com transmissão ao vivo no YouTube.
           </p>
         </div>
 
@@ -499,7 +506,7 @@
             </p>
           </div>
           <div class="mt-5 pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs font-tech text-slate-400">
-            <span><i class="fa-brands fa-youtube text-red-400 mr-1"></i> YouTube </span>
+            <span><i class="fa-brands fa-youtube text-red-400 mr-1"></i> YouTube</span>
             <span class="day-badge text-neonblue font-bold"></span>
           </div>
         </div>
@@ -663,11 +670,11 @@
           UNIVERSO DO CANAL
         </h2>
         <p class="text-slate-400 text-sm mt-1">
-          Foco total em jogos de ação desafiadores, combate técnico e estética dark/anime.
+          Foco total em jogos de ação desafiadores, combate técnico e estética dark/samurai/anime.
         </p>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
         <!-- Card 1: Phantom Blade Zero -->
         <article class="glass-card rounded-2xl overflow-hidden flex flex-col border-crimson/40 group">
           <div class="h-40 relative bg-gradient-to-br from-slate-900 via-rose-950/60 to-obsidian p-5 flex flex-col justify-between overflow-hidden">
@@ -758,7 +765,37 @@
           </div>
         </article>
 
-        <!-- Card 4: Solo Leveling: Arise -->
+        <!-- Card 4: Onimusha: Way of the Sword -->
+        <article class="glass-card rounded-2xl overflow-hidden flex flex-col group">
+          <div class="h-40 relative bg-gradient-to-br from-slate-900 via-cyan-950/60 to-obsidian p-5 flex flex-col justify-between overflow-hidden">
+            <div class="absolute right-3 bottom-1 opacity-20 group-hover:opacity-35 transition transform group-hover:scale-110">
+              <i class="fa-solid fa-torii-gate text-7xl text-cyan-400"></i>
+            </div>
+            <div class="flex items-center justify-between relative z-10">
+              <span class="px-2.5 py-1 rounded-full bg-cyan-500/20 border border-cyan-400/35 text-cyan-300 font-tech font-bold text-[11px] uppercase tracking-wider">
+                Candidato Enquete
+              </span>
+              <span class="font-tech text-[11px] font-bold text-cyan-200 bg-obsidian/60 px-2 py-0.5 rounded-lg">Samurai Action</span>
+            </div>
+            <div class="relative z-10">
+              <p class="font-tech text-[11px] uppercase tracking-widest text-cyan-300 font-bold">Dark Samurai &amp; Issen</p>
+              <h3 class="font-display font-extrabold text-lg text-white mt-0.5 leading-tight">ONIMUSHA: WAY OF THE SWORD</h3>
+            </div>
+          </div>
+          <div class="p-4 flex-grow flex flex-col justify-between space-y-4">
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Duelos técnicos de katana, contra-ataques letais no último milissegundo e atmosfera sombria do Japão feudal.
+            </p>
+            <div class="flex items-center justify-between pt-3 border-t border-slate-800/80 text-xs font-tech">
+              <span class="text-cyan-400 font-bold uppercase tracking-wider">Opção #3</span>
+              <a href="#ciclo-atual" class="text-slate-300 hover:text-neonblue font-bold">
+                Votar &rarr;
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 5: Solo Leveling: Arise -->
         <article class="glass-card rounded-2xl overflow-hidden flex flex-col group">
           <div class="h-40 relative bg-gradient-to-br from-slate-900 via-sky-950/60 to-obsidian p-5 flex flex-col justify-between overflow-hidden">
             <div class="absolute right-3 bottom-1 opacity-20 group-hover:opacity-35 transition transform group-hover:scale-110">
@@ -849,6 +886,7 @@
             <h3 class="font-display font-bold text-base sm:text-lg text-white mt-1">Fifine AM8 + Mixer SC3</h3>
             <p class="text-xs text-slate-400 mt-1.5">Microfone dinâmico Fifine AM8 + Mixer Fifine AmpliGame SC3 com monitoramento direto.</p>
           </div>
+
           <!-- Software -->
           <div class="p-5 rounded-xl bg-obsidian/90 border border-slate-800/90 hover:border-neonblue/40 transition">
             <div class="w-10 h-10 rounded-lg bg-sky-500/15 text-sky-400 flex items-center justify-center mb-3">
@@ -978,7 +1016,7 @@
         "• Sábado: 15:00 – 19:00 (4h00 • Live Especial da Tarde — Chefes Opcionais & Clímax)\n" +
         "📺 YouTube: https://www.youtube.com/@ren_akabane\n" +
         "💬 Discord: https://discord.gg/8ymvd3EGn";
-      fallbackCopyText(text, 'Horários Copiados!', 'Nova grade (Qui/Sex 21h30, Sáb 15h00) pronta para colar.');
+      fallbackCopyText(text, 'Horários Copiados!', 'Grade oficial (Qui/Sex 21h30, Sáb 15h00) pronta para colar.');
     }
 
     function copySetupSpecs() {
@@ -987,7 +1025,8 @@
         "• CPU: AMD Ryzen 5 5600GT\n" +
         "• GPU: Intel Arc B580 12GB VRAM (Codificação AV1 / QSV 1080p60)\n" +
         "• RAM: 32GB DDR4\n" +
-        "• Áudio: Microfone Dinâmico Fifine AM8 + Mixer Fifine AmpliGame SC3\n";
+        "• Áudio: Microfone Dinâmico Fifine AM8 + Mixer Fifine AmpliGame SC3\n" +
+        "• Software: OBS Studio (YouTube 1080p60)";
       fallbackCopyText(specs, 'Specs Copiadas!', 'Configurações completas do setup copiadas.');
     }
 
@@ -1006,10 +1045,6 @@
     // ==========================================
     // 2. DETECTOR DE STATUS DA LIVE & COUNTDOWN (BRT / UTC-3)
     // ==========================================
-    // Grade semanal oficial em horário de Brasília (America/Sao_Paulo, UTC-3):
-    // Quinta (4): 21:30 – 00:00 (endHour 24)
-    // Sexta (5): 21:30 – 01:00 (cruza meia-noite para Sábado 01:00)
-    // Sábado (6): 15:00 – 19:00
     const STREAM_SLOTS = [
       { day: 4, name: 'Quinta-feira', startH: 21, startM: 30, durationMins: 150, endLabel: '00:00' },
       { day: 5, name: 'Sexta-feira', startH: 21, startM: 30, durationMins: 210, endLabel: '01:00' },
@@ -1033,7 +1068,6 @@
         if (p.type !== 'literal') parts[p.type] = parseInt(p.value, 10);
       }
       const hour = parts.hour === 24 ? 0 : parts.hour;
-      // Cria objeto Date representando o relógio de Brasília (UTC-3 fixo)
       const brtWallDate = new Date(Date.UTC(parts.year, parts.month - 1, parts.day, hour, parts.minute, parts.second));
       return {
         year: parts.year,
@@ -1051,7 +1085,6 @@
       const brt = getBrasiliaDateParts();
       const currentDay = brt.dayOfWeek;
 
-      // Destacar o card do dia atual na grade semanal
       document.querySelectorAll('.day-badge').forEach(el => (el.textContent = ''));
       const todayCard = document.getElementById(`day-card-${currentDay}`);
       if (todayCard) {
@@ -1071,7 +1104,6 @@
       let nextTargetMs = null;
       let nextSlotObj = null;
 
-      // Verifica slots de ontem (ex: Sexta 21:30 até Sábado 01:00) até +7 dias
       for (let offset = -1; offset <= 7; offset++) {
         const refDate = new Date(Date.UTC(brt.year, brt.month - 1, brt.day + offset, 0, 0, 0));
         const slot = STREAM_SLOTS.find(s => s.day === refDate.getUTCDay());
@@ -1100,7 +1132,6 @@
         }
       }
 
-      // Atualiza visual do Badge Superior e Labels
       if (activeSlot) {
         statusText.textContent = 'AO VIVO AGORA NO YOUTUBE!';
         statusText.className = 'text-crimson';
@@ -1129,7 +1160,6 @@
         nextStreamInfo.textContent = `${nextSlotObj.name} às ${formattedTime} (Horário de Brasília)`;
       }
 
-      // Atualiza números do Countdown
       if (nextTargetMs !== null) {
         const diff = Math.max(0, nextTargetMs - brt.wallMs);
         const days = Math.floor(diff / (1000 * 60 * 60 * 24));
@@ -1241,45 +1271,53 @@
     // ==========================================
     // 4. VOTAÇÃO DA COMUNIDADE (LOCALSTORAGE)
     // ==========================================
-    const BASE_VOTES = { elden: 82, codevein: 60 };
+    const BASE_VOTES = { elden: 64, codevein: 42, onimusha: 54 };
+
+    const GAME_LABELS = {
+      elden: 'Elden Ring (Shadow of the Erdtree)',
+      codevein: 'Code Vein',
+      onimusha: 'Onimusha: Way of the Sword'
+    };
 
     function renderVotes() {
       const userVote = localStorage.getItem('ren_akabane_next_game_vote');
-      const eldenCount = BASE_VOTES.elden + (userVote === 'elden' ? 1 : 0);
-      const codeveinCount = BASE_VOTES.codevein + (userVote === 'codevein' ? 1 : 0);
-      const total = eldenCount + codeveinCount;
+      const counts = {
+        elden: BASE_VOTES.elden + (userVote === 'elden' ? 1 : 0),
+        codevein: BASE_VOTES.codevein + (userVote === 'codevein' ? 1 : 0),
+        onimusha: BASE_VOTES.onimusha + (userVote === 'onimusha' ? 1 : 0)
+      };
+      const total = counts.elden + counts.codevein + counts.onimusha;
 
-      const pctElden = Math.round((eldenCount / total) * 100);
-      const pctCodevein = 100 - pctElden;
+      const pctElden = Math.round((counts.elden / total) * 100);
+      const pctCodevein = Math.round((counts.codevein / total) * 100);
+      const pctOnimusha = 100 - pctElden - pctCodevein;
 
       document.getElementById('bar-elden').style.width = `${pctElden}%`;
       document.getElementById('bar-codevein').style.width = `${pctCodevein}%`;
+      document.getElementById('bar-onimusha').style.width = `${pctOnimusha}%`;
+
       document.getElementById('pct-elden').textContent = `${pctElden}%`;
       document.getElementById('pct-codevein').textContent = `${pctCodevein}%`;
+      document.getElementById('pct-onimusha').textContent = `${pctOnimusha}%`;
       document.getElementById('total-votes-badge').textContent = `${total} votos`;
 
-      const checkElden = document.getElementById('check-elden');
-      const checkCodevein = document.getElementById('check-codevein');
-      const btnElden = document.getElementById('vote-btn-elden');
-      const btnCodevein = document.getElementById('vote-btn-codevein');
+      document.getElementById('check-elden').classList.toggle('hidden', userVote !== 'elden');
+      document.getElementById('check-codevein').classList.toggle('hidden', userVote !== 'codevein');
+      document.getElementById('check-onimusha').classList.toggle('hidden', userVote !== 'onimusha');
 
-      checkElden.classList.toggle('hidden', userVote !== 'elden');
-      checkCodevein.classList.toggle('hidden', userVote !== 'codevein');
+      document.getElementById('vote-btn-elden').classList.toggle('border-amber-400', userVote === 'elden');
+      document.getElementById('vote-btn-codevein').classList.toggle('border-crimson', userVote === 'codevein');
+      document.getElementById('vote-btn-onimusha').classList.toggle('border-cyan-400', userVote === 'onimusha');
 
-      btnElden.classList.toggle('border-amber-400', userVote === 'elden');
-      btnCodevein.classList.toggle('border-crimson', userVote === 'codevein');
-
-      if (userVote) {
-        const gameName = userVote === 'elden' ? 'Elden Ring' : 'Code Vein';
-        document.getElementById('vote-feedback').textContent = `Voto registrado em ${gameName}!`;
+      if (userVote && GAME_LABELS[userVote]) {
+        document.getElementById('vote-feedback').textContent = `Voto registrado em ${GAME_LABELS[userVote]}!`;
       }
     }
 
     function castVote(choice) {
       localStorage.setItem('ren_akabane_next_game_vote', choice);
       renderVotes();
-      const gameName = choice === 'elden' ? 'Elden Ring (Shadow of the Erdtree)' : 'Code Vein';
-      showToast('Voto Registrado!', `Você votou em ${gameName} para o próximo ciclo.`);
+      showToast('Voto Registrado!', `Você votou em ${GAME_LABELS[choice]} para o próximo ciclo.`);
     }
 
     renderVotes();
