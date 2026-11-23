@@ -30,13 +30,13 @@
           colors: {
             obsidian: '#070b14',
             abyss: '#0c1324',
-            neonblue: '#00d2ff',
+            neonblue: '#00d4ff',
             electric: '#3b82f6',
-            crimson: '#e11d48',
+            crimson: '#ff2a5f',
           },
           boxShadow: {
-            'neon-blue': '0 0 25px rgba(0, 210, 255, 0.25)',
-            'neon-crimson': '0 0 25px rgba(225, 29, 72, 0.28)',
+            'neon-blue': '0 0 25px rgba(0, 212, 255, 0.25)',
+            'neon-crimson': '0 0 25px rgba(255, 42, 95, 0.28)',
           },
           animation: {
             'pulse-slow': 'pulse 3.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
@@ -62,11 +62,39 @@
 
     /* Superfícies em vidro translúcido */
     .glass-card {
-      background: linear-gradient(145deg, rgba(15, 23, 42, 0.78), rgba(7, 11, 20, 0.88));
+      background: linear-gradient(145deg, rgba(15, 23, 42, 0.72), rgba(7, 11, 20, 0.88));
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
       border: 1px solid rgba(59, 130, 246, 0.18);
       transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .glass-card:hover {
+      border-color: rgba(0, 212, 255, 0.45);
+      box-shadow: 0 10px 30px -10px rgba(0, 212, 255, 0.22);
+    }
+
+    .glass-crimson {
+      background: linear-gradient(145deg, rgba(24, 14, 28, 0.85), rgba(7, 11, 20, 0.92));
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 42, 95, 0.35);
+      box-shadow: 0 0 35px rgba(255, 42, 95, 0.14);
+    }
+
+    /* Grade sutil de fundo */
+    .bg-cyber-grid {
+      background-image:
+        radial-gradient(circle at 18% 15%, rgba(0, 212, 255, 0.12) 0%, transparent 42%),
+        radial-gradient(circle at 82% 22%, rgba(255, 42, 95, 0.1) 0%, transparent 40%),
+        linear-gradient(rgba(59, 130, 246, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(59, 130, 246, 0.04) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 44px 44px, 44px 44px;
+    }
+
+    /* Brilho no emblema SVG */
+    .wolf-glow {
+      filter: drop-shadow(0 0 12px rgba(0, 212, 255, 0.65));
     }
 
     .glass-card:hover {
@@ -147,16 +175,17 @@
         </div>
         <div>
           <span class="font-display font-bold text-white tracking-wider text-sm sm:text-base block leading-none">REN AKABANE</span>
-          <span class="font-tech text-xs text-neonblue tracking-widest">@ren_akabane</span>
+          <span class="font-tech text-xs text-neonblue tracking-widest">@ren_akabane </span>
         </div>
       </a>
 
       <!-- Links Desktop -->
-      <nav class="hidden md:flex items-center gap-7 font-tech font-semibold text-base tracking-wide text-slate-300">
+      <nav class="hidden md:flex items-center gap-6 font-tech font-semibold text-base tracking-wide text-slate-300">
         <a href="#ciclo-atual" class="hover:text-neonblue transition">Ciclo Atual</a>
         <a href="#agenda" class="hover:text-neonblue transition">Agenda</a>
         <a href="#jogos" class="hover:text-neonblue transition">Jogos</a>
         <a href="#setup" class="hover:text-neonblue transition">Setup</a>
+        <a href="#comunidade" class="hover:text-neonblue transition">Comunidade</a>
       </nav>
 
       <!-- Botões Rápidos Header -->
@@ -164,7 +193,6 @@
         <a href="https://www.youtube.com/@ren_akabane" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="p-2.5 rounded-xl bg-red-600/15 hover:bg-red-600/30 border border-red-500/30 text-red-400 hover:text-white transition">
           <i class="fa-brands fa-youtube text-base"></i>
         </a>
-
         <a href="https://discord.gg/8ymvd3EGn" target="_blank" rel="noopener noreferrer" aria-label="Discord" class="hidden sm:flex items-center gap-2 px-3.5 py-2 rounded-xl bg-indigo-600/20 hover:bg-indigo-600/35 border border-indigo-400/30 text-indigo-300 hover:text-white font-tech font-bold text-sm transition">
           <i class="fa-brands fa-discord"></i>
           <span>Discord</span>
@@ -196,7 +224,7 @@
               @ren_akabane &bull; Soulslike, Action RPG &amp; Desafios no Parry
             </p>
             <p class="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-              Transmissões ao vivo em Português (PT-BR) focadas em combates frenéticos, chefes implacáveis e jornadas completas no limite da habilidade. Acompanhe no <strong class="text-white">YouTube</strong>.
+              Transmissões ao vivo em Português (PT-BR) focadas em combates frenéticos, chefes implacáveis e jornadas completas no limite da habilidade. Acompanhe simultaneamente no <strong class="text-white">YouTube</strong>.
             </p>
           </div>
 
@@ -206,11 +234,16 @@
               <i class="fa-brands fa-youtube text-lg"></i>
               <span>Assistir no YouTube</span>
             </a>
-
             <a href="https://discord.gg/8ymvd3EGn" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2.5 px-5 py-3 rounded-xl bg-indigo-600/20 hover:bg-indigo-600/35 border border-indigo-400/40 text-indigo-200 hover:text-white font-tech font-bold text-base tracking-wide transition transform hover:-translate-y-0.5">
               <i class="fa-brands fa-discord text-lg"></i>
               <span>Comunidade Discord</span>
             </a>
+
+            <a href="https://www.instagram.com/ren_akabane" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-4 py-3 rounded-xl glass-card text-slate-200 hover:text-neonblue font-tech font-bold text-base transition transform hover:-translate-y-0.5">
+              <i class="fa-brands fa-instagram text-lg text-pink-400"></i>
+              <span>@ren_akabane</span>
+            </a>
+          </div>
         </div>
 
         <!-- Coluna Direita: Emblema Lobo Neon + Contador Próxima Live -->
@@ -248,7 +281,7 @@
                   Próxima Transmissão Agendada
                 </p>
                 <p id="next-stream-info" class="font-tech text-base sm:text-lg font-bold text-white">
-                  Terça-feira às 20:00 (Horário de Brasília)
+                  Quinta-feira às 21:30 (Horário de Brasília)
                 </p>
 
                 <!-- Blocos do Relógio -->
@@ -299,31 +332,46 @@
           <!-- Contador de Lives do Ciclo -->
           <div class="flex items-center gap-4 bg-obsidian/80 border border-crimson/30 rounded-xl px-5 py-3.5 shrink-0">
             <div class="text-right">
-              <span class="block font-tech text-xs uppercase tracking-wider text-slate-400">Meta do Arco</span>
-              <span id="cycle-progress-text" class="font-display font-bold text-xl text-white">Semana 1 / 3</span>
+              <span class="block font-tech text-xs uppercase tracking-wider text-slate-400">Meta do Arco (26/11–13/12)</span>
+              <span id="cycle-progress-text" class="font-display font-bold text-xl text-white">0 / 9 Lives</span>
             </div>
-            <div class="w-12 h-12 rounded-xl bg-crimson/20 border border-crimson/40 flex items-center justify-center text-crimson font-display font-black text-lg">
-              9x
+            <div class="w-12 h-12 rounded-xl bg-crimson/20 border border-crimson/40 flex items-center justify-center text-crimson font-display font-black text-base">
+              30h
             </div>
           </div>
         </div>
 
-        <!-- Conteúdo em 2 Colunas: Progresso das 3 Semanas + Votação da Comunidade -->
+        <!-- Conteúdo em 2 Colunas: Progresso Interativo + Votação da Comunidade -->
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 pt-7 items-start">
 
-          <!-- Barra de Progresso Interativa das 3 Semanas -->
+          <!-- Barra de Progresso Interativa das 9 Lives & 3 Semanas -->
           <div class="lg:col-span-7 space-y-5">
-            <div class="flex items-center justify-between">
+            <div class="flex flex-wrap items-center justify-between gap-2">
               <h3 class="font-tech font-bold text-lg text-white uppercase tracking-wider flex items-center gap-2">
                 <i class="fa-solid fa-khanda text-crimson"></i>
-                <span>Etapas da Jornada (Clique para inspecionar)</span>
+                <span>Progresso da Campanha (9 Lives / 30 Horas)</span>
               </h3>
-              <span id="progress-percent" class="font-display font-bold text-sm text-neonblue">33%</span>
+              <div class="flex items-center gap-2">
+                <button type="button" onclick="adjustCompletedLives(-1)" aria-label="Diminuir live concluída" class="w-8 h-8 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-300 hover:text-white font-display font-bold text-sm transition cursor-pointer">-</button>
+                <span id="progress-percent" class="font-display font-bold text-sm text-neonblue min-w-[3.2rem] text-center">0%</span>
+                <button type="button" onclick="adjustCompletedLives(1)" aria-label="Adicionar live concluída" class="w-8 h-8 rounded-lg bg-crimson/20 hover:bg-crimson/35 border border-crimson/50 text-crimson hover:text-white font-display font-bold text-sm transition cursor-pointer">+</button>
+              </div>
             </div>
 
             <!-- Barra Visual -->
             <div class="w-full h-3 bg-obsidian rounded-full overflow-hidden border border-slate-800 p-0.5">
-              <div id="campaign-progress-bar" class="h-full rounded-full bg-gradient-to-r from-neonblue via-blue-500 to-crimson transition-all duration-500" style="width: 33.3%;"></div>
+              <div id="campaign-progress-bar" class="h-full rounded-full bg-gradient-to-r from-neonblue via-blue-500 to-crimson transition-all duration-500" style="width: 0%;"></div>
+            </div>
+
+            <!-- Botões Rápidos das 9 Lives (Clique para marcar/desmarcar) -->
+            <div class="bg-obsidian/75 border border-slate-800/90 rounded-xl p-3.5 space-y-2.5">
+              <div class="flex items-center justify-between text-xs font-tech">
+                <span class="text-slate-400 uppercase tracking-wider font-semibold">Marcar Lives Concluídas (Salvo no Navegador):</span>
+                <span id="hours-completed-label" class="text-neonblue font-bold">0,0h / 30,0h jogadas</span>
+              </div>
+              <div id="live-check-pills" class="grid grid-cols-3 sm:grid-cols-9 gap-1.5">
+                <!-- Preenchido via JS -->
+              </div>
             </div>
 
             <!-- Cards Clicáveis das 3 Semanas -->
@@ -331,16 +379,16 @@
               <button type="button" onclick="selectCampaignWeek(1)" id="week-btn-1" class="week-card text-left p-4 rounded-xl bg-obsidian/90 border-2 border-crimson transition cursor-pointer">
                 <div class="flex items-center justify-between mb-1.5">
                   <span class="font-tech font-bold text-xs uppercase tracking-wider text-crimson">Semana 01</span>
-                  <span class="text-[11px] px-2 py-0.5 rounded bg-crimson/20 text-crimson font-tech font-bold">24–27 Nov</span>
+                  <span class="text-[11px] px-2 py-0.5 rounded bg-crimson/20 text-crimson font-tech font-bold">26–28 Nov</span>
                 </div>
                 <p class="font-tech font-bold text-white text-base leading-snug">Abertura do Arco</p>
-                <p class="text-xs text-slate-400 mt-1">Primeira metade do NG+, ajuste de build e timing de parry.</p>
+                <p class="text-xs text-slate-400 mt-1">Ato 1 completo, ajuste de build e 1ª metade do NG+.</p>
               </button>
 
               <button type="button" onclick="selectCampaignWeek(2)" id="week-btn-2" class="week-card text-left p-4 rounded-xl bg-obsidian/70 border border-slate-800 hover:border-neonblue/50 transition cursor-pointer">
                 <div class="flex items-center justify-between mb-1.5">
                   <span class="font-tech font-bold text-xs uppercase tracking-wider text-neonblue">Semana 02</span>
-                  <span class="text-[11px] px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-tech font-bold">01–04 Dez</span>
+                  <span class="text-[11px] px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-tech font-bold">03–05 Dez</span>
                 </div>
                 <p class="font-tech font-bold text-white text-base leading-snug">Escalada de Chefes</p>
                 <p class="text-xs text-slate-400 mt-1">Chefes intermediários, áreas secretas e bosses opcionais.</p>
@@ -349,10 +397,10 @@
               <button type="button" onclick="selectCampaignWeek(3)" id="week-btn-3" class="week-card text-left p-4 rounded-xl bg-obsidian/70 border border-slate-800 hover:border-neonblue/50 transition cursor-pointer">
                 <div class="flex items-center justify-between mb-1.5">
                   <span class="font-tech font-bold text-xs uppercase tracking-wider text-amber-400">Semana 03</span>
-                  <span class="text-[11px] px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-tech font-bold">08–11 Dez</span>
+                  <span class="text-[11px] px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-tech font-bold">10–12 Dez</span>
                 </div>
                 <p class="font-tech font-bold text-white text-base leading-snug">Reta Final &amp; Clímax</p>
-                <p class="text-xs text-slate-400 mt-1">Chefe final da Jornada Suprema ao vivo + compilado no YouTube.</p>
+                <p class="text-xs text-slate-400 mt-1">Chefe final da Jornada Suprema no Sábado + vídeo longo.</p>
               </button>
             </div>
 
@@ -360,7 +408,7 @@
             <div id="week-detail-box" class="p-4 rounded-xl bg-obsidian/80 border border-slate-800/90 text-xs sm:text-sm text-slate-300 flex items-start gap-3">
               <i class="fa-solid fa-crosshairs text-crimson mt-0.5"></i>
               <p id="week-detail-text">
-                <strong class="text-white">Foco da Semana 1:</strong> Estabelecer o ritmo de combate na Jornada Suprema (Lives 1 a 3), dominando a leitura de postura dos chefes iniciais e separando clipes para Shorts.
+                <strong class="text-white">Foco da Semana 1 (Lives #1 a #3 — 26/11 a 28/11):</strong> Estabelecer o ritmo de combate na Jornada Suprema (NG+), completando o Ato 1 na quinta, avançando nos chefes iniciais na sexta e fechando a primeira metade na live especial de sábado (15h–19h).
               </p>
             </div>
           </div>
@@ -386,29 +434,29 @@
 
             <!-- Opções de Voto -->
             <div class="space-y-3 pt-1">
-              <!-- Opção 1: Elden Ring -->
+              <!-- Opção 1: Elden Ring (Shadow of the Erdtree) -->
               <button type="button" onclick="castVote('elden')" id="vote-btn-elden" class="w-full text-left p-3.5 rounded-xl bg-slate-900/90 border border-slate-700/80 hover:border-amber-400/60 transition relative overflow-hidden group cursor-pointer">
                 <div id="bar-elden" class="absolute inset-y-0 left-0 bg-amber-500/15 transition-all duration-500" style="width: 58%;"></div>
-                <div class="relative z-10 flex items-center justify-between">
-                  <div class="flex items-center gap-2.5">
+                <div class="relative z-10 flex items-center justify-between gap-2">
+                  <div class="flex items-center gap-2.5 flex-wrap">
                     <i class="fa-solid fa-ring text-amber-400"></i>
-                    <span class="font-tech font-bold text-white text-base">Elden Ring</span>
+                    <span class="font-tech font-bold text-white text-base">Elden Ring <span class="text-xs text-amber-300/90 font-semibold">(Shadow of the Erdtree)</span></span>
                     <span id="check-elden" class="hidden text-xs px-2 py-0.5 rounded bg-amber-400/20 text-amber-300 font-tech font-bold">Seu voto</span>
                   </div>
-                  <span id="pct-elden" class="font-display font-bold text-sm text-amber-300">58%</span>
+                  <span id="pct-elden" class="font-display font-bold text-sm text-amber-300 shrink-0">58%</span>
                 </div>
               </button>
 
               <!-- Opção 2: Code Vein -->
               <button type="button" onclick="castVote('codevein')" id="vote-btn-codevein" class="w-full text-left p-3.5 rounded-xl bg-slate-900/90 border border-slate-700/80 hover:border-crimson/60 transition relative overflow-hidden group cursor-pointer">
                 <div id="bar-codevein" class="absolute inset-y-0 left-0 bg-crimson/15 transition-all duration-500" style="width: 42%;"></div>
-                <div class="relative z-10 flex items-center justify-between">
-                  <div class="flex items-center gap-2.5">
+                <div class="relative z-10 flex items-center justify-between gap-2">
+                  <div class="flex items-center gap-2.5 flex-wrap">
                     <i class="fa-solid fa-droplet text-crimson"></i>
                     <span class="font-tech font-bold text-white text-base">Code Vein</span>
                     <span id="check-codevein" class="hidden text-xs px-2 py-0.5 rounded bg-crimson/20 text-crimson font-tech font-bold">Seu voto</span>
                   </div>
-                  <span id="pct-codevein" class="font-display font-bold text-sm text-rose-300">42%</span>
+                  <span id="pct-codevein" class="font-display font-bold text-sm text-rose-300 shrink-0">42%</span>
                 </div>
               </button>
             </div>
@@ -416,7 +464,7 @@
             <div class="pt-1 flex items-center justify-between text-xs text-slate-400">
               <span id="vote-feedback">Clique em uma opção para registrar seu voto.</span>
               <a href="https://discord.gg/8ymvd3EGn" target="_blank" rel="noopener noreferrer" class="text-indigo-400 hover:text-indigo-300 font-tech font-bold uppercase tracking-wider">
-                Debater no Discord &rarr;
+                Votar no Discord &rarr;
               </a>
             </div>
           </div>
@@ -429,12 +477,12 @@
     <section id="agenda" class="max-w-6xl mx-auto px-4 sm:px-6 py-12">
       <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
         <div>
-          <span class="font-tech font-bold text-xs uppercase tracking-widest text-neonblue">Programação Oficial</span>
+          <span class="font-tech font-bold text-xs uppercase tracking-widest text-neonblue">Programação Oficial (10h Semanais)</span>
           <h2 class="font-display font-extrabold text-2xl sm:text-3xl text-white mt-1">
             GRADE DE TRANSMISSÕES
           </h2>
           <p class="text-slate-400 text-sm mt-1">
-            Horários fixos no fuso de Brasília (BRT) com transmissão no YouTube.
+            Horários fixos no fuso de Brasília (BRT / UTC-3) com transmissão no YouTube.
           </p>
         </div>
 
@@ -445,7 +493,7 @@
               Grade Semanal Padrão
             </button>
             <button type="button" onclick="switchScheduleTab('special')" id="tab-special" class="px-3.5 py-2 rounded-lg font-tech font-bold text-sm text-slate-300 hover:text-white transition cursor-pointer">
-              Calendário 3 Semanas (24/11–11/12)
+              Calendário 9 Lives (26/11–12/12)
             </button>
           </div>
 
@@ -458,8 +506,8 @@
 
       <!-- VISÃO 1: GRADE SEMANAL PADRÃO -->
       <div id="schedule-weekly-view" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        <!-- Terça-feira -->
-        <div id="day-card-2" class="glass-card rounded-2xl p-5 flex flex-col justify-between relative overflow-hidden">
+        <!-- Quinta-feira -->
+        <div id="day-card-4" class="glass-card rounded-2xl p-5 flex flex-col justify-between relative overflow-hidden">
           <div>
             <div class="flex items-center justify-between mb-3">
               <span class="px-2.5 py-1 rounded-lg bg-neonblue/15 border border-neonblue/30 text-neonblue font-tech font-bold text-xs uppercase tracking-wider">
@@ -467,20 +515,20 @@
               </span>
               <span class="font-tech text-xs text-slate-400 font-semibold">2h30 de duração</span>
             </div>
-            <h3 class="font-display font-bold text-xl text-white">TERÇA-FEIRA</h3>
-            <p class="font-tech font-bold text-2xl text-neonblue mt-1">20:00 – 22:30</p>
+            <h3 class="font-display font-bold text-xl text-white">QUINTA-FEIRA</h3>
+            <p class="font-tech font-bold text-2xl text-neonblue mt-1">21:30 – 00:00</p>
             <p class="text-xs sm:text-sm text-slate-300 mt-3 leading-relaxed">
-              Sessão focada e intensa: tentativas diretas contra chefes, treino de parry e avanço rápido de fase.
+              <strong class="text-white">Progressão &amp; Chefes:</strong> Abertura da grade semanal pós-expediente Home Office (21h), focada em avanço direto e treino de parry.
             </p>
           </div>
           <div class="mt-5 pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs font-tech text-slate-400">
-            <span><i class="fa-brands fa-youtube text-red-400 mr-1"></i> YouTube + Kick</span>
+            <span><i class="fa-brands fa-youtube text-red-400 mr-1"></i> YouTube</span>
             <span class="day-badge text-neonblue font-bold"></span>
           </div>
         </div>
 
-        <!-- Quinta-feira -->
-        <div id="day-card-4" class="glass-card rounded-2xl p-5 flex flex-col justify-between relative overflow-hidden">
+        <!-- Sexta-feira -->
+        <div id="day-card-5" class="glass-card rounded-2xl p-5 flex flex-col justify-between relative overflow-hidden">
           <div>
             <div class="flex items-center justify-between mb-3">
               <span class="px-2.5 py-1 rounded-lg bg-blue-500/15 border border-blue-400/30 text-blue-300 font-tech font-bold text-xs uppercase tracking-wider">
@@ -488,40 +536,40 @@
               </span>
               <span class="font-tech text-xs text-slate-400 font-semibold">3h30 de duração</span>
             </div>
-            <h3 class="font-display font-bold text-xl text-white">QUINTA-FEIRA</h3>
-            <p class="font-tech font-bold text-2xl text-neonblue mt-1">19:00 – 22:30</p>
+            <h3 class="font-display font-bold text-xl text-white">SEXTA-FEIRA</h3>
+            <p class="font-tech font-bold text-2xl text-neonblue mt-1">21:30 – 01:00</p>
             <p class="text-xs sm:text-sm text-slate-300 mt-3 leading-relaxed">
-              Abertura antecipada para render o máximo de campanha, exploração de mapa, builds e lutas épicas.
+              <strong class="text-white">Combate Intenso &amp; Desafios:</strong> Sessão noturna estendida aproveitando a folga de sábado para encarar chefes difíceis sem pressa.
             </p>
           </div>
           <div class="mt-5 pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs font-tech text-slate-400">
-            <span><i class="fa-brands fa-youtube text-red-400 mr-1"></i> YouTube + Kick</span>
+            <span><i class="fa-brands fa-youtube text-red-400 mr-1"></i> YouTube</span>
             <span class="day-badge text-neonblue font-bold"></span>
           </div>
         </div>
 
-        <!-- Sexta-feira -->
-        <div id="day-card-5" class="glass-card rounded-2xl p-5 flex flex-col justify-between relative overflow-hidden border-crimson/35">
+        <!-- Sábado -->
+        <div id="day-card-6" class="glass-card rounded-2xl p-5 flex flex-col justify-between relative overflow-hidden border-crimson/35">
           <div>
             <div class="flex items-center justify-between mb-3">
               <span class="px-2.5 py-1 rounded-lg bg-crimson/20 border border-crimson/40 text-crimson font-tech font-bold text-xs uppercase tracking-wider">
-                Live Estendida
+                Live Especial da Tarde
               </span>
               <span class="font-tech text-xs text-slate-400 font-semibold">4h00 de duração</span>
             </div>
-            <h3 class="font-display font-bold text-xl text-white">SEXTA-FEIRA</h3>
-            <p class="font-tech font-bold text-2xl text-crimson mt-1">19:30 – 23:30</p>
+            <h3 class="font-display font-bold text-xl text-white">SÁBADO</h3>
+            <p class="font-tech font-bold text-2xl text-crimson mt-1">15:00 – 19:00</p>
             <p class="text-xs sm:text-sm text-slate-300 mt-3 leading-relaxed">
-              Noite nobre de desafios na Jornada Suprema, chefes secretos, resenha com o chat e maratona sem pressa.
+              <strong class="text-white">Chefes Opcionais &amp; Clímax:</strong> Maratona vespertina em horário nobre de fim de semana, áreas secretas e fechamento dos atos.
             </p>
           </div>
           <div class="mt-5 pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs font-tech text-slate-400">
-            <span><i class="fa-brands fa-youtube text-red-400 mr-1"></i> YouTube + Kick</span>
+            <span><i class="fa-brands fa-youtube text-red-400 mr-1"></i> YouTube</span>
             <span class="day-badge text-crimson font-bold"></span>
           </div>
         </div>
 
-        <!-- Segunda, Quarta e Fim de Semana -->
+        <!-- Seg, Ter, Qua & Dom -->
         <div class="glass-card rounded-2xl p-5 flex flex-col justify-between bg-slate-900/40">
           <div>
             <div class="flex items-center justify-between mb-3">
@@ -530,22 +578,22 @@
               </span>
               <span class="font-tech text-xs text-slate-400 font-semibold">Bastidores</span>
             </div>
-            <h3 class="font-display font-bold text-lg text-white">SEG, QUA &amp; FIM DE SEMANA</h3>
-            <p class="font-tech font-bold text-lg text-slate-300 mt-1">Shorts, Reels &amp; Live Extra</p>
+            <h3 class="font-display font-bold text-lg text-white">SEG, TER, QUA &amp; DOM</h3>
+            <p class="font-tech font-bold text-lg text-slate-300 mt-1">Descanso, Shorts &amp; Discord</p>
             <p class="text-xs sm:text-sm text-slate-400 mt-3 leading-relaxed">
-              Dias dedicados à edição dos <strong class="text-slate-200">Melhores Momentos</strong> no YouTube, cortes verticais e eventuais lives extras anunciadas no Discord.
+              Dias dedicados à recuperação pós-expediente presencial (Seg–Qua) e à edição dos <strong class="text-slate-200">6 Shorts + Vídeo Longo</strong> no domingo.
             </p>
           </div>
           <div class="mt-5 pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs font-tech">
             <a href="https://discord.gg/8ymvd3EGn" target="_blank" rel="noopener noreferrer" class="text-indigo-400 hover:text-indigo-300 font-bold">
               <i class="fa-brands fa-discord mr-1"></i> Avisos no Discord
             </a>
-            <span class="text-slate-500">15:00 (Opcional)</span>
+            <span class="text-slate-500">Comunidade Ativa</span>
           </div>
         </div>
       </div>
 
-      <!-- VISÃO 2: CALENDÁRIO ESPECIAL 3 SEMANAS (24/11 A 11/12) -->
+      <!-- VISÃO 2: CALENDÁRIO ESPECIAL 3 SEMANAS (26/11 A 12/12/2026) -->
       <div id="schedule-special-view" class="hidden space-y-4">
         <div class="glass-card rounded-2xl overflow-hidden">
           <div class="overflow-x-auto">
@@ -554,7 +602,7 @@
                 <tr class="bg-slate-900/95 border-b border-slate-800 font-tech text-xs uppercase tracking-wider text-slate-400">
                   <th class="py-3.5 px-4">Live</th>
                   <th class="py-3.5 px-4">Data &amp; Dia</th>
-                  <th class="py-3.5 px-4">Horário</th>
+                  <th class="py-3.5 px-4">Horário (BRT)</th>
                   <th class="py-3.5 px-4">Arco</th>
                   <th class="py-3.5 px-4">Objetivo da Transmissão</th>
                 </tr>
@@ -562,66 +610,66 @@
               <tbody class="divide-y divide-slate-800/70 text-xs sm:text-sm">
                 <tr class="hover:bg-slate-800/30">
                   <td class="py-3 px-4 font-display font-bold text-neonblue">#01</td>
-                  <td class="py-3 px-4 font-semibold text-white">24/11 (Terça)</td>
-                  <td class="py-3 px-4 font-tech font-bold text-neonblue">20:00 – 22:30</td>
+                  <td class="py-3 px-4 font-semibold text-white">26/11 (Quinta)</td>
+                  <td class="py-3 px-4 font-tech font-bold text-neonblue">21:30 – 00:00</td>
                   <td class="py-3 px-4"><span class="px-2 py-0.5 rounded bg-crimson/20 text-crimson font-tech font-bold text-xs">Semana 1</span></td>
-                  <td class="py-3 px-4 text-slate-300">Início da Jornada Suprema (NG+) — Primeiros chefes e calibração de parry</td>
+                  <td class="py-3 px-4 text-slate-300">Jornada Suprema — Ato 1: Início, ajuste de build e timing de parry</td>
                 </tr>
                 <tr class="hover:bg-slate-800/30">
                   <td class="py-3 px-4 font-display font-bold text-neonblue">#02</td>
-                  <td class="py-3 px-4 font-semibold text-white">26/11 (Quinta)</td>
-                  <td class="py-3 px-4 font-tech font-bold text-neonblue">19:00 – 22:30</td>
+                  <td class="py-3 px-4 font-semibold text-white">27/11 (Sexta)</td>
+                  <td class="py-3 px-4 font-tech font-bold text-neonblue">21:30 – 01:00</td>
                   <td class="py-3 px-4"><span class="px-2 py-0.5 rounded bg-crimson/20 text-crimson font-tech font-bold text-xs">Semana 1</span></td>
-                  <td class="py-3 px-4 text-slate-300">Avanço na campanha principal e domínio das lâminas secundárias</td>
+                  <td class="py-3 px-4 text-slate-300">Avanço na campanha principal &amp; chefes iniciais na Jornada Suprema</td>
                 </tr>
                 <tr class="hover:bg-slate-800/30">
                   <td class="py-3 px-4 font-display font-bold text-neonblue">#03</td>
-                  <td class="py-3 px-4 font-semibold text-white">27/11 (Sexta)</td>
-                  <td class="py-3 px-4 font-tech font-bold text-crimson">19:30 – 23:30</td>
+                  <td class="py-3 px-4 font-semibold text-white">28/11 (Sábado)</td>
+                  <td class="py-3 px-4 font-tech font-bold text-crimson">15:00 – 19:00</td>
                   <td class="py-3 px-4"><span class="px-2 py-0.5 rounded bg-crimson/20 text-crimson font-tech font-bold text-xs">Semana 1</span></td>
-                  <td class="py-3 px-4 text-slate-300">Fechamento do Ato 1 na Jornada Suprema + maratona com o chat</td>
+                  <td class="py-3 px-4 text-slate-300">Live Especial da Tarde — Fechamento da 1ª metade do NG+ (4h)</td>
                 </tr>
                 <tr class="hover:bg-slate-800/30">
                   <td class="py-3 px-4 font-display font-bold text-neonblue">#04</td>
-                  <td class="py-3 px-4 font-semibold text-white">01/12 (Terça)</td>
-                  <td class="py-3 px-4 font-tech font-bold text-neonblue">20:00 – 22:30</td>
+                  <td class="py-3 px-4 font-semibold text-white">03/12 (Quinta)</td>
+                  <td class="py-3 px-4 font-tech font-bold text-neonblue">21:30 – 00:00</td>
                   <td class="py-3 px-4"><span class="px-2 py-0.5 rounded bg-blue-500/20 text-blue-300 font-tech font-bold text-xs">Semana 2</span></td>
                   <td class="py-3 px-4 text-slate-300">Escalada de Chefes — Enfrentando os guardiões intermediários</td>
                 </tr>
                 <tr class="hover:bg-slate-800/30">
                   <td class="py-3 px-4 font-display font-bold text-neonblue">#05</td>
-                  <td class="py-3 px-4 font-semibold text-white">03/12 (Quinta)</td>
-                  <td class="py-3 px-4 font-tech font-bold text-neonblue">19:00 – 22:30</td>
+                  <td class="py-3 px-4 font-semibold text-white">04/12 (Sexta)</td>
+                  <td class="py-3 px-4 font-tech font-bold text-neonblue">21:30 – 01:00</td>
                   <td class="py-3 px-4"><span class="px-2 py-0.5 rounded bg-blue-500/20 text-blue-300 font-tech font-bold text-xs">Semana 2</span></td>
-                  <td class="py-3 px-4 text-slate-300">Exploração de áreas ocultas e desbloqueio de chefes opcionais</td>
+                  <td class="py-3 px-4 text-slate-300">Exploração de áreas secretas e desbloqueio de chefes opcionais</td>
                 </tr>
                 <tr class="hover:bg-slate-800/30">
                   <td class="py-3 px-4 font-display font-bold text-neonblue">#06</td>
-                  <td class="py-3 px-4 font-semibold text-white">04/12 (Sexta)</td>
-                  <td class="py-3 px-4 font-tech font-bold text-crimson">19:30 – 23:30</td>
+                  <td class="py-3 px-4 font-semibold text-white">05/12 (Sábado)</td>
+                  <td class="py-3 px-4 font-tech font-bold text-crimson">15:00 – 19:00</td>
                   <td class="py-3 px-4"><span class="px-2 py-0.5 rounded bg-blue-500/20 text-blue-300 font-tech font-bold text-xs">Semana 2</span></td>
-                  <td class="py-3 px-4 text-slate-300">Caça aos chefes secretos mais difíceis antes do ato final</td>
+                  <td class="py-3 px-4 text-slate-300">Limpeza dos chefes opcionais extremos antes da reta final (4h)</td>
                 </tr>
                 <tr class="hover:bg-slate-800/30">
                   <td class="py-3 px-4 font-display font-bold text-neonblue">#07</td>
-                  <td class="py-3 px-4 font-semibold text-white">08/12 (Terça)</td>
-                  <td class="py-3 px-4 font-tech font-bold text-neonblue">20:00 – 22:30</td>
+                  <td class="py-3 px-4 font-semibold text-white">10/12 (Quinta)</td>
+                  <td class="py-3 px-4 font-tech font-bold text-neonblue">21:30 – 00:00</td>
                   <td class="py-3 px-4"><span class="px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 font-tech font-bold text-xs">Semana 3</span></td>
-                  <td class="py-3 px-4 text-slate-300">Reta Final — Portões da fortaleza final na Jornada Suprema</td>
+                  <td class="py-3 px-4 text-slate-300">Reta Final: A Marcha Decisiva até os portões do chefe final</td>
                 </tr>
                 <tr class="hover:bg-slate-800/30">
                   <td class="py-3 px-4 font-display font-bold text-neonblue">#08</td>
-                  <td class="py-3 px-4 font-semibold text-white">10/12 (Quinta)</td>
-                  <td class="py-3 px-4 font-tech font-bold text-neonblue">19:00 – 22:30</td>
+                  <td class="py-3 px-4 font-semibold text-white">11/12 (Sexta)</td>
+                  <td class="py-3 px-4 font-tech font-bold text-neonblue">21:30 – 01:00</td>
                   <td class="py-3 px-4"><span class="px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 font-tech font-bold text-xs">Semana 3</span></td>
-                  <td class="py-3 px-4 text-slate-300">Preparação final e confronto contra o penúltimo chefe</td>
+                  <td class="py-3 px-4 text-slate-300">Pré-Final: Build máxima, consumíveis e confronto contra o penúltimo chefe</td>
                 </tr>
                 <tr class="bg-crimson/10 hover:bg-crimson/15">
                   <td class="py-3 px-4 font-display font-bold text-crimson">#09</td>
-                  <td class="py-3 px-4 font-bold text-white">11/12 (Sexta)</td>
-                  <td class="py-3 px-4 font-tech font-bold text-crimson">19:30 – 23:30</td>
+                  <td class="py-3 px-4 font-bold text-white">12/12 (Sábado)</td>
+                  <td class="py-3 px-4 font-tech font-bold text-crimson">15:00 – 19:00</td>
                   <td class="py-3 px-4"><span class="px-2 py-0.5 rounded bg-crimson text-white font-tech font-bold text-xs">FINAL</span></td>
-                  <td class="py-3 px-4 text-white font-medium">FINAL DA JORNADA SUPREMA! Chefe final ao vivo + anúncio do próximo jogo</td>
+                  <td class="py-3 px-4 text-white font-medium">FINAL DA JORNADA SUPREMA! Chefe final ao vivo + revelação do próximo jogo</td>
                 </tr>
               </tbody>
             </table>
@@ -630,10 +678,10 @@
       </div>
     </section>
 
-    <!-- 4. JOGOS DO CANAL (CATÁLOGO SOULSLIKE & ACTION RPG) -->
+    <!-- 4. CATÁLOGO & PRÓXIMAS JORNADAS -->
     <section id="jogos" class="max-w-6xl mx-auto px-4 sm:px-6 py-12">
       <div class="mb-8">
-        <span class="font-tech font-bold text-xs uppercase tracking-widest text-neonblue">Catálogo &amp; Séries</span>
+        <span class="font-tech font-bold text-xs uppercase tracking-widest text-neonblue">Catálogo &amp; Próximas Jornadas</span>
         <h2 class="font-display font-extrabold text-2xl sm:text-3xl text-white mt-1">
           UNIVERSO DO CANAL
         </h2>
@@ -642,33 +690,32 @@
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
         <!-- Card 1: Phantom Blade Zero -->
         <article class="glass-card rounded-2xl overflow-hidden flex flex-col border-crimson/40 group">
-          <div class="h-44 relative bg-gradient-to-br from-slate-900 via-rose-950/60 to-obsidian p-6 flex flex-col justify-between overflow-hidden">
-            <!-- Arte Geométrica / Espada -->
-            <div class="absolute right-4 bottom-2 opacity-20 group-hover:opacity-35 transition transform group-hover:scale-110">
-              <i class="fa-solid fa-khanda text-8xl text-crimson"></i>
+          <div class="h-40 relative bg-gradient-to-br from-slate-900 via-rose-950/60 to-obsidian p-5 flex flex-col justify-between overflow-hidden">
+            <div class="absolute right-3 bottom-1 opacity-20 group-hover:opacity-35 transition transform group-hover:scale-110">
+              <i class="fa-solid fa-khanda text-7xl text-crimson"></i>
             </div>
             <div class="flex items-center justify-between relative z-10">
-              <span class="px-3 py-1 rounded-full bg-crimson text-white font-tech font-bold text-xs uppercase tracking-wider shadow-neon-crimson">
+              <span class="px-2.5 py-1 rounded-full bg-crimson text-white font-tech font-bold text-[11px] uppercase tracking-wider shadow-neon-crimson">
                 Em Andamento
               </span>
-              <span class="font-tech text-xs font-bold text-rose-200 bg-obsidian/60 px-2.5 py-1 rounded-lg">NG+ / Parry</span>
+              <span class="font-tech text-[11px] font-bold text-rose-200 bg-obsidian/60 px-2 py-0.5 rounded-lg">NG+</span>
             </div>
             <div class="relative z-10">
-              <p class="font-tech text-xs uppercase tracking-widest text-rose-300 font-bold">Kungfu-Punk Action RPG</p>
-              <h3 class="font-display font-extrabold text-xl text-white mt-0.5">PHANTOM BLADE ZERO</h3>
+              <p class="font-tech text-[11px] uppercase tracking-widest text-rose-300 font-bold">Kungfu-Punk Action</p>
+              <h3 class="font-display font-extrabold text-lg text-white mt-0.5 leading-tight">PHANTOM BLADE ZERO</h3>
             </div>
           </div>
-          <div class="p-5 flex-grow flex flex-col justify-between space-y-4">
-            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
-              Combate em altíssima velocidade com lâminas letais, quebra de postura e contra-ataques no limite durante a <strong class="text-white">Jornada Suprema</strong>.
+          <div class="p-4 flex-grow flex flex-col justify-between space-y-4">
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Combate em altíssima velocidade com lâminas letais e contra-ataques no limite na <strong class="text-white">Jornada Suprema</strong>.
             </p>
             <div class="flex items-center justify-between pt-3 border-t border-slate-800/80 text-xs font-tech">
               <span class="text-crimson font-bold uppercase tracking-wider">Ciclo Atual (9 Lives)</span>
               <a href="https://www.youtube.com/@ren_akabane" target="_blank" rel="noopener noreferrer" class="text-neonblue hover:underline font-bold">
-                Ver Lives &rarr;
+                Lives &rarr;
               </a>
             </div>
           </div>
@@ -676,29 +723,29 @@
 
         <!-- Card 2: Elden Ring -->
         <article class="glass-card rounded-2xl overflow-hidden flex flex-col group">
-          <div class="h-44 relative bg-gradient-to-br from-slate-900 via-amber-950/45 to-obsidian p-6 flex flex-col justify-between overflow-hidden">
-            <div class="absolute right-4 bottom-2 opacity-20 group-hover:opacity-35 transition transform group-hover:scale-110">
-              <i class="fa-solid fa-ring text-8xl text-amber-400"></i>
+          <div class="h-40 relative bg-gradient-to-br from-slate-900 via-amber-950/45 to-obsidian p-5 flex flex-col justify-between overflow-hidden">
+            <div class="absolute right-3 bottom-1 opacity-20 group-hover:opacity-35 transition transform group-hover:scale-110">
+              <i class="fa-solid fa-ring text-7xl text-amber-400"></i>
             </div>
             <div class="flex items-center justify-between relative z-10">
-              <span class="px-3 py-1 rounded-full bg-amber-500/20 border border-amber-400/40 text-amber-300 font-tech font-bold text-xs uppercase tracking-wider">
-                Próximo Ciclo / Favorito
+              <span class="px-2.5 py-1 rounded-full bg-amber-500/20 border border-amber-400/40 text-amber-300 font-tech font-bold text-[11px] uppercase tracking-wider">
+                Candidato Enquete
               </span>
-              <span class="font-tech text-xs font-bold text-amber-200 bg-obsidian/60 px-2.5 py-1 rounded-lg">Soulslike</span>
+              <span class="font-tech text-[11px] font-bold text-amber-200 bg-obsidian/60 px-2 py-0.5 rounded-lg">Soulslike</span>
             </div>
             <div class="relative z-10">
-              <p class="font-tech text-xs uppercase tracking-widest text-amber-300 font-bold">Dark Fantasy RPG</p>
-              <h3 class="font-display font-extrabold text-xl text-white mt-0.5">ELDEN RING</h3>
+              <p class="font-tech text-[11px] uppercase tracking-widest text-amber-300 font-bold">Shadow of the Erdtree</p>
+              <h3 class="font-display font-extrabold text-lg text-white mt-0.5 leading-tight">ELDEN RING</h3>
             </div>
           </div>
-          <div class="p-5 flex-grow flex flex-col justify-between space-y-4">
-            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
-              Builds otimizadas, exploração completa das Terras Intermédias e duelos lendários contra os Semideuses sem recorrer a atalhos.
+          <div class="p-4 flex-grow flex flex-col justify-between space-y-4">
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Builds técnicas e duelos implacáveis contra os chefes mais desafiadores das Terras Intermédias e do Reino das Sombras.
             </p>
             <div class="flex items-center justify-between pt-3 border-t border-slate-800/80 text-xs font-tech">
-              <span class="text-amber-400 font-bold uppercase tracking-wider">Líder na Enquete</span>
+              <span class="text-amber-400 font-bold uppercase tracking-wider">Opção #1</span>
               <a href="#ciclo-atual" class="text-slate-300 hover:text-neonblue font-bold">
-                Votar na Enquete &rarr;
+                Votar &rarr;
               </a>
             </div>
           </div>
@@ -706,29 +753,59 @@
 
         <!-- Card 3: Code Vein -->
         <article class="glass-card rounded-2xl overflow-hidden flex flex-col group">
-          <div class="h-44 relative bg-gradient-to-br from-slate-900 via-indigo-950/55 to-obsidian p-6 flex flex-col justify-between overflow-hidden">
-            <div class="absolute right-4 bottom-2 opacity-20 group-hover:opacity-35 transition transform group-hover:scale-110">
-              <i class="fa-solid fa-droplet text-8xl text-indigo-400"></i>
+          <div class="h-40 relative bg-gradient-to-br from-slate-900 via-indigo-950/55 to-obsidian p-5 flex flex-col justify-between overflow-hidden">
+            <div class="absolute right-3 bottom-1 opacity-20 group-hover:opacity-35 transition transform group-hover:scale-110">
+              <i class="fa-solid fa-droplet text-7xl text-indigo-400"></i>
             </div>
             <div class="flex items-center justify-between relative z-10">
-              <span class="px-3 py-1 rounded-full bg-neonblue/15 border border-neonblue/35 text-neonblue font-tech font-bold text-xs uppercase tracking-wider">
-                Na Fila
+              <span class="px-2.5 py-1 rounded-full bg-neonblue/15 border border-neonblue/35 text-neonblue font-tech font-bold text-[11px] uppercase tracking-wider">
+                Candidato Enquete
               </span>
-              <span class="font-tech text-xs font-bold text-indigo-200 bg-obsidian/60 px-2.5 py-1 rounded-lg">Anime Soulslike</span>
+              <span class="font-tech text-[11px] font-bold text-indigo-200 bg-obsidian/60 px-2 py-0.5 rounded-lg">Anime</span>
             </div>
             <div class="relative z-10">
-              <p class="font-tech text-xs uppercase tracking-widest text-indigo-300 font-bold">Action RPG / Blood Codes</p>
-              <h3 class="font-display font-extrabold text-xl text-white mt-0.5">CODE VEIN</h3>
+              <p class="font-tech text-[11px] uppercase tracking-widest text-indigo-300 font-bold">Anime Soulslike</p>
+              <h3 class="font-display font-extrabold text-lg text-white mt-0.5 leading-tight">CODE VEIN</h3>
             </div>
           </div>
-          <div class="p-5 flex-grow flex flex-col justify-between space-y-4">
-            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
-              Estética anime pós-apocalíptica, combinação dinâmica de Códigos de Sangue e batalhas contra chefes ágeis e implacáveis.
+          <div class="p-4 flex-grow flex flex-col justify-between space-y-4">
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Combinação dinâmica de Códigos de Sangue, esquivas precisas e chefes frenéticos em um universo anime pós-apocalíptico.
             </p>
             <div class="flex items-center justify-between pt-3 border-t border-slate-800/80 text-xs font-tech">
-              <span class="text-neonblue font-bold uppercase tracking-wider">Próxima Série</span>
+              <span class="text-neonblue font-bold uppercase tracking-wider">Opção #2</span>
               <a href="#ciclo-atual" class="text-slate-300 hover:text-neonblue font-bold">
-                Votar na Enquete &rarr;
+                Votar &rarr;
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 4: Solo Leveling: Arise -->
+        <article class="glass-card rounded-2xl overflow-hidden flex flex-col group">
+          <div class="h-40 relative bg-gradient-to-br from-slate-900 via-sky-950/60 to-obsidian p-5 flex flex-col justify-between overflow-hidden">
+            <div class="absolute right-3 bottom-1 opacity-20 group-hover:opacity-35 transition transform group-hover:scale-110">
+              <i class="fa-solid fa-bolt text-7xl text-neonblue"></i>
+            </div>
+            <div class="flex items-center justify-between relative z-10">
+              <span class="px-2.5 py-1 rounded-full bg-sky-500/20 border border-sky-400/35 text-sky-300 font-tech font-bold text-[11px] uppercase tracking-wider">
+                Na Rotação
+              </span>
+              <span class="font-tech text-[11px] font-bold text-sky-200 bg-obsidian/60 px-2 py-0.5 rounded-lg">Action RPG</span>
+            </div>
+            <div class="relative z-10">
+              <p class="font-tech text-[11px] uppercase tracking-widest text-sky-300 font-bold">Hunter &amp; Shadow Army</p>
+              <h3 class="font-display font-extrabold text-lg text-white mt-0.5 leading-tight">SOLO LEVELING: ARISE</h3>
+            </div>
+          </div>
+          <div class="p-4 flex-grow flex flex-col justify-between space-y-4">
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Combos velozes com adagas, esquiva extrema e invocação das sombras nas masmorras e chefes de alto nível.
+            </p>
+            <div class="flex items-center justify-between pt-3 border-t border-slate-800/80 text-xs font-tech">
+              <span class="text-sky-400 font-bold uppercase tracking-wider">Série Especial</span>
+              <a href="https://discord.gg/8ymvd3EGn" target="_blank" rel="noopener noreferrer" class="text-slate-300 hover:text-neonblue font-bold">
+                Sugerir &rarr;
               </a>
             </div>
           </div>
@@ -736,26 +813,26 @@
       </div>
     </section>
 
-    <!-- 5. SETUP & EQUIPAMENTOS (PC & ÁUDIO) -->
-    <section id="setup" class="max-w-6xl mx-auto px-4 sm:px-6 py-12 pb-20">
+    <!-- 5. SETUP TÉCNICO & TRANSMISSÃO -->
+    <section id="setup" class="max-w-6xl mx-auto px-4 sm:px-6 py-12">
       <div class="glass-card rounded-2xl p-6 sm:p-8 lg:p-10">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
           <div>
             <span class="font-tech font-bold text-xs uppercase tracking-widest text-neonblue">Hardware &amp; Transmissão</span>
             <h2 class="font-display font-extrabold text-2xl sm:text-3xl text-white mt-1">
-              SETUP DE STREAMING
+              SETUP TÉCNICO &amp; STREAMING
             </h2>
             <p class="text-slate-400 text-sm mt-1">
-              Configuração otimizada para rodar jogos modernos a 60 FPS com codificação em hardware AV1/H.264.
+              Configuração otimizada para rodar jogos modernos a 60 FPS com codificação em hardware AV1 / QuickSync.
             </p>
           </div>
           <button type="button" onclick="copySetupSpecs()" class="self-start sm:self-auto px-4 py-2.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 border border-neonblue/35 text-neonblue font-tech font-bold text-sm flex items-center gap-2 transition cursor-pointer">
             <i class="fa-solid fa-microchip"></i>
-            <span>Copiar Specs do PC</span>
+            <span>Copiar Specs do Setup</span>
           </button>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           <!-- CPU -->
           <div class="p-5 rounded-xl bg-obsidian/90 border border-slate-800/90 hover:border-neonblue/40 transition">
             <div class="w-10 h-10 rounded-lg bg-neonblue/15 text-neonblue flex items-center justify-center mb-3">
@@ -763,7 +840,7 @@
             </div>
             <span class="font-tech text-xs uppercase tracking-widest text-slate-400 font-bold">Processador (CPU)</span>
             <h3 class="font-display font-bold text-base sm:text-lg text-white mt-1">AMD Ryzen 5 5600GT</h3>
-            <p class="text-xs text-slate-400 mt-1.5">6 Núcleos / 12 Threads para multitarefa fluida entre jogo e OBS Studio.</p>
+            <p class="text-xs text-slate-400 mt-1.5">6 Núcleos / 12 Threads para multitarefa fluida entre o jogo e o OBS Studio.</p>
           </div>
 
           <!-- GPU -->
@@ -772,8 +849,8 @@
               <i class="fa-solid fa-tv text-lg"></i>
             </div>
             <span class="font-tech text-xs uppercase tracking-widest text-slate-400 font-bold">Placa de Vídeo (GPU)</span>
-            <h3 class="font-display font-bold text-base sm:text-lg text-white mt-1">Intel Arc B580 12GB</h3>
-            <p class="text-xs text-slate-400 mt-1.5">12GB VRAM com Encoder dedicado QuickSync AV1 para alta nitidez em 1080p60.</p>
+            <h3 class="font-display font-bold text-base sm:text-lg text-white mt-1">Intel Arc B580 12GB VRAM</h3>
+            <p class="text-xs text-slate-400 mt-1.5">Codificação AV1 / QSV dedicada via hardware em 1080p60 fps com alta nitidez.</p>
           </div>
 
           <!-- RAM -->
@@ -782,8 +859,8 @@
               <i class="fa-solid fa-memory text-lg"></i>
             </div>
             <span class="font-tech text-xs uppercase tracking-widest text-slate-400 font-bold">Memória RAM</span>
-            <h3 class="font-display font-bold text-base sm:text-lg text-white mt-1">32GB DDR4</h3>
-            <p class="text-xs text-slate-400 mt-1.5">Folga total para Unreal Engine 5, overlays do chat e gravação simultânea.</p>
+            <h3 class="font-display font-bold text-base sm:text-lg text-white mt-1">32GB RAM DDR4</h3>
+            <p class="text-xs text-slate-400 mt-1.5">Folga total para Unreal Engine 5, overlays, Botrix e gravação local simultânea.</p>
           </div>
 
           <!-- Áudio -->
@@ -792,16 +869,61 @@
               <i class="fa-solid fa-microphone-lines text-lg"></i>
             </div>
             <span class="font-tech text-xs uppercase tracking-widest text-slate-400 font-bold">Áudio &amp; Interface</span>
-            <h3 class="font-display font-bold text-base sm:text-lg text-white mt-1">Fifine AM8 + SC3</h3>
-            <p class="text-xs text-slate-400 mt-1.5">Microfone dinâmico XLR/USB acoplado ao mixer AmpliGame SC3 com tratamento no OBS.</p>
+            <h3 class="font-display font-bold text-base sm:text-lg text-white mt-1">Fifine AM8 + Mixer SC3</h3>
+            <p class="text-xs text-slate-400 mt-1.5">Microfone dinâmico Fifine AM8 + Mixer Fifine AmpliGame SC3 com monitoramento direto.</p>
           </div>
+
+          <!-- Câmera & Mobile -->
+          <div class="p-5 rounded-xl bg-obsidian/90 border border-slate-800/90 hover:border-neonblue/40 transition">
+            <div class="w-10 h-10 rounded-lg bg-emerald-500/15 text-emerald-400 flex items-center justify-center mb-3">
+              <i class="fa-solid fa-camera text-lg"></i>
+            </div>
+            <span class="font-tech text-xs uppercase tracking-widest text-slate-400 font-bold">Câmera &amp; Mobile</span>
+            <h3 class="font-display font-bold text-base sm:text-lg text-white mt-1">Webcam Full HD + Xiaomi 15T</h3>
+            <p class="text-xs text-slate-400 mt-1.5">Captura facial calibrada para lives noturnas/vespertinas e acompanhamento via Xiaomi 15T.</p>
+          </div>
+
+          <!-- Software -->
+          <div class="p-5 rounded-xl bg-obsidian/90 border border-slate-800/90 hover:border-neonblue/40 transition">
+            <div class="w-10 h-10 rounded-lg bg-sky-500/15 text-sky-400 flex items-center justify-center mb-3">
+              <i class="fa-solid fa-tower-broadcast text-lg"></i>
+            </div>
+            <span class="font-tech text-xs uppercase tracking-widest text-slate-400 font-bold">Software &amp; Multistream</span>
+            <h3 class="font-display font-bold text-base sm:text-lg text-white mt-1">OBS Studio (YT)</h3>
+            <p class="text-xs text-slate-400 mt-1.5">Transmissão simultânea 1080p60 com RNNoise, compressor, limitador (-1 dB) e gravação local.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. COMUNIDADE & REDES OFICIAIS -->
+    <section id="comunidade" class="max-w-6xl mx-auto px-4 sm:px-6 pt-4 pb-20">
+      <div class="glass-card rounded-2xl p-6 sm:p-8 border-indigo-500/30 flex flex-col lg:flex-row items-center justify-between gap-6">
+        <div class="space-y-2 text-center lg:text-left">
+          <span class="font-tech font-bold text-xs uppercase tracking-widest text-indigo-400">Alcateia Ren Akabane</span>
+          <h2 class="font-display font-extrabold text-2xl sm:text-3xl text-white">
+            ENTRE PARA O DISCORD OFICIAL
+          </h2>
+          <p class="text-slate-300 text-sm max-w-2xl">
+            Receba avisos 30 minutos antes de cada live, participe das votações dos próximos jogos, compartilhe builds de Soulslike e acompanhe os bastidores do canal.
+          </p>
+        </div>
+
+        <div class="flex flex-wrap items-center justify-center gap-3 shrink-0">
+          <a href="https://discord.gg/8ymvd3EGn" target="_blank" rel="noopener noreferrer" class="px-6 py-3.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-tech font-bold text-base tracking-wide shadow-lg shadow-indigo-950/50 transition flex items-center gap-2.5">
+            <i class="fa-brands fa-discord text-lg"></i>
+            <span>Entrar em discord.gg/8ymvd3EGn</span>
+          </a>
+          <button type="button" onclick="copyDiscordLink()" class="px-4 py-3.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 border border-indigo-400/35 text-indigo-300 hover:text-white font-tech font-bold text-sm transition cursor-pointer">
+            <i class="fa-regular fa-copy mr-1"></i> Copiar Convite
+          </button>
         </div>
       </div>
     </section>
 
   </main>
 
-  <!-- 6. RODAPÉ -->
+  <!-- 7. RODAPÉ -->
   <footer class="relative z-10 border-t border-slate-800/90 bg-obsidian/95">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 py-10">
       <div class="flex flex-col md:flex-row items-center justify-between gap-6">
@@ -826,7 +948,7 @@
             <i class="fa-brands fa-youtube text-red-400"></i>
             <span>YouTube</span>
           </a>
-          <a href="https://www.instagram.com/bruno.riverwolf" target="_blank" rel="noopener noreferrer" class="px-3.5 py-2 rounded-xl bg-slate-900 hover:bg-pink-500/20 border border-slate-800 hover:border-pink-400/40 text-slate-300 hover:text-white font-tech font-bold text-sm transition flex items-center gap-2">
+          <a href="https://www.instagram.com/bruno.riverwolf target="_blank" rel="noopener noreferrer" class="px-3.5 py-2 rounded-xl bg-slate-900 hover:bg-pink-500/20 border border-slate-800 hover:border-pink-400/40 text-slate-300 hover:text-white font-tech font-bold text-sm transition flex items-center gap-2">
             <i class="fa-brands fa-instagram text-pink-400"></i>
             <span>Instagram</span>
           </a>
@@ -838,7 +960,7 @@
       </div>
 
       <div class="mt-8 pt-6 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-slate-500">
-        <p>&copy; <span id="current-year"></span> Ren Akabane (@ren_akabane). Todos os direitos reservados.</p>
+        <p>&copy; 2026 Ren Akabane (@ren_akabane. Todos os direitos reservados.</p>
         <p>Pronto para GitHub Pages &bull; Feito para a comunidade Soulslike</p>
       </div>
     </div>
@@ -846,9 +968,6 @@
 
   <!-- Scripts de Interatividade -->
   <script>
-    // Ano atual no rodapé
-    document.getElementById('current-year').textContent = new Date().getFullYear();
-
     // ==========================================
     // 1. UTILITÁRIO DE CLIPBOARD & TOAST VISUAL
     // ==========================================
@@ -887,48 +1006,84 @@
 
     function copyScheduleText() {
       const text =
-        "🐺 AGENDA DE LIVES — REN AKABANE (@ren_akabane)\n" +
-        "• Terça-feira: 20:00 – 22:30 (Live Curta — Chefes & Parry)\n" +
-        "• Quinta-feira: 19:00 – 22:30 (Live Principal — Campanha)\n" +
-        "• Sexta-feira: 19:30 – 23:30 (Live Estendida — Jornada Suprema)\n" +
-        "📺 YouTube: https://www.youtube.com/@ren_akabane\n" +
+        "🐺 AGENDA OFICIAL DE LIVES — REN AKABANE (@ren_akabane)\n" +
+        "• Quinta-feira: 21:30 – 00:00 (2h30 • Live Curta — Progressão & Chefes)\n" +
+        "• Sexta-feira: 21:30 – 01:00 (3h30 • Live Principal — Combate Intenso & Desafios)\n" +
+        "• Sábado: 15:00 – 19:00 (4h00 • Live Especial da Tarde — Chefes Opcionais & Clímax)\n" +
+        "📺 YouTube: https://www.youtube.com/@ren_akabane\n"+
         "💬 Discord: https://discord.gg/8ymvd3EGn";
-      fallbackCopyText(text, 'Horários Copiados!', 'Agenda pronta para colar no Discord ou WhatsApp.');
+      fallbackCopyText(text, 'Horários Copiados!', 'Nova grade (Qui/Sex 21h30, Sáb 15h00) pronta para colar.');
     }
 
     function copySetupSpecs() {
       const specs =
         "🖥️ SETUP — REN AKABANE (@ren_akabane)\n" +
         "• CPU: AMD Ryzen 5 5600GT\n" +
-        "• GPU: Intel Arc B580 12GB VRAM (Encoder AV1)\n" +
+        "• GPU: Intel Arc B580 12GB VRAM (Codificação AV1 / QSV 1080p60)\n" +
         "• RAM: 32GB DDR4\n" +
-        "• Áudio: Microfone Dinâmico Fifine AM8 + Mixer AmpliGame SC3";
-      fallbackCopyText(specs, 'Specs Copiadas!', 'Configurações do PC e áudio copiadas.');
+        "• Áudio: Microfone Dinâmico Fifine AM8 + Mixer Fifine AmpliGame SC3\n" +)";
+      fallbackCopyText(specs, 'Specs Copiadas!', 'Configurações completas do setup copiadas.');
     }
 
     function copyDiscordLink() {
       const link = 'https://discord.gg/8ymvd3EGn';
       const label = document.getElementById('copy-discord-label');
       fallbackCopyText(link, 'Copiado!', 'Convite do Discord (discord.gg/8ymvd3EGn) copiado.');
-      label.textContent = 'Copiado!';
-      setTimeout(() => {
-        label.textContent = 'Copiar Link Discord';
-      }, 2500);
+      if (label) {
+        label.textContent = 'Copiado!';
+        setTimeout(() => {
+          label.textContent = 'Copiar Link Discord';
+        }, 2500);
+      }
     }
 
     // ==========================================
-    // 2. DETECTOR DE STATUS DA LIVE & COUNTDOWN
+    // 2. DETECTOR DE STATUS DA LIVE & COUNTDOWN (BRT / UTC-3)
     // ==========================================
-    // Grade semanal (0=Dom, 1=Seg, 2=Ter, 3=Qua, 4=Qui, 5=Sex, 6=Sab)
-    const STREAM_SCHEDULE = [
-      { day: 2, name: 'Terça-feira', startH: 20, startM: 0, endH: 22, endM: 30 },
-      { day: 4, name: 'Quinta-feira', startH: 19, startM: 0, endH: 22, endM: 30 },
-      { day: 5, name: 'Sexta-feira', startH: 19, startM: 30, endH: 23, endM: 30 }
+    // Grade semanal oficial em horário de Brasília (America/Sao_Paulo, UTC-3):
+    // Quinta (4): 21:30 – 00:00 (endHour 24)
+    // Sexta (5): 21:30 – 01:00 (cruza meia-noite para Sábado 01:00)
+    // Sábado (6): 15:00 – 19:00
+    const STREAM_SLOTS = [
+      { day: 4, name: 'Quinta-feira', startH: 21, startM: 30, durationMins: 150, endLabel: '00:00' },
+      { day: 5, name: 'Sexta-feira', startH: 21, startM: 30, durationMins: 210, endLabel: '01:00' },
+      { day: 6, name: 'Sábado', startH: 15, startM: 0, durationMins: 240, endLabel: '19:00' }
     ];
 
-    function updateStreamStatusAndCountdown() {
+    function getBrasiliaDateParts() {
       const now = new Date();
-      const currentDay = now.getDay();
+      const formatter = new Intl.DateTimeFormat('en-US', {
+        timeZone: 'America/Sao_Paulo',
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: false
+      });
+      const parts = {};
+      for (const p of formatter.formatToParts(now)) {
+        if (p.type !== 'literal') parts[p.type] = parseInt(p.value, 10);
+      }
+      const hour = parts.hour === 24 ? 0 : parts.hour;
+      // Cria objeto Date representando o relógio de Brasília (UTC-3 fixo)
+      const brtWallDate = new Date(Date.UTC(parts.year, parts.month - 1, parts.day, hour, parts.minute, parts.second));
+      return {
+        year: parts.year,
+        month: parts.month,
+        day: parts.day,
+        dayOfWeek: brtWallDate.getUTCDay(),
+        hour,
+        minute: parts.minute,
+        second: parts.second,
+        wallMs: brtWallDate.getTime()
+      };
+    }
+
+    function updateStreamStatusAndCountdown() {
+      const brt = getBrasiliaDateParts();
+      const currentDay = brt.dayOfWeek;
 
       // Destacar o card do dia atual na grade semanal
       document.querySelectorAll('.day-badge').forEach(el => (el.textContent = ''));
@@ -945,74 +1100,72 @@
       const countdownLabel = document.getElementById('countdown-label');
       const nextStreamInfo = document.getElementById('next-stream-info');
 
-      // Verifica se há live hoje
-      const todaySlot = STREAM_SCHEDULE.find(s => s.day === currentDay);
-      let isLiveNow = false;
-      let isSoonToday = false;
-
-      if (todaySlot) {
-        const startToday = new Date(now);
-        startToday.setHours(todaySlot.startH, todaySlot.startM, 0, 0);
-
-        const endToday = new Date(now);
-        endToday.setHours(todaySlot.endH, todaySlot.endM, 0, 0);
-
-        const twoHoursBefore = new Date(startToday.getTime() - 2 * 60 * 60 * 1000);
-
-        if (now >= startToday && now <= endToday) {
-          isLiveNow = true;
-        } else if (now >= twoHoursBefore && now < startToday) {
-          isSoonToday = true;
-        }
-      }
-
-      // Calcula a próxima transmissão futura
-      let nextTarget = null;
+      let activeSlot = null;
+      let soonSlot = null;
+      let nextTargetMs = null;
       let nextSlotObj = null;
 
-      for (let offset = 0; offset <= 7; offset++) {
-        const checkDate = new Date(now);
-        checkDate.setDate(now.getDate() + offset);
-        const checkDay = checkDate.getDay();
-        const slot = STREAM_SCHEDULE.find(s => s.day === checkDay);
+      // Verifica slots de ontem (ex: Sexta 21:30 até Sábado 01:00) até +7 dias
+      for (let offset = -1; offset <= 7; offset++) {
+        const refDate = new Date(Date.UTC(brt.year, brt.month - 1, brt.day + offset, 0, 0, 0));
+        const slot = STREAM_SLOTS.find(s => s.day === refDate.getUTCDay());
+        if (!slot) continue;
 
-        if (slot) {
-          const candidate = new Date(checkDate);
-          candidate.setHours(slot.startH, slot.startM, 0, 0);
-          if (candidate > now) {
-            nextTarget = candidate;
-            nextSlotObj = slot;
-            break;
-          }
+        const startMs = Date.UTC(
+          refDate.getUTCFullYear(),
+          refDate.getUTCMonth(),
+          refDate.getUTCDate(),
+          slot.startH,
+          slot.startM,
+          0
+        );
+        const endMs = startMs + slot.durationMins * 60 * 1000;
+        const twoHoursBeforeMs = startMs - 2 * 60 * 60 * 1000;
+
+        if (brt.wallMs >= startMs && brt.wallMs < endMs) {
+          activeSlot = slot;
+        } else if (brt.wallMs >= twoHoursBeforeMs && brt.wallMs < startMs) {
+          soonSlot = slot;
+        }
+
+        if (startMs > brt.wallMs && nextTargetMs === null) {
+          nextTargetMs = startMs;
+          nextSlotObj = slot;
         }
       }
 
-      // Atualiza visual do Badge Superior
-      if (isLiveNow) {
-        statusText.textContent = 'AO VIVO AGORA NO YOUTUBE !';
+      // Atualiza visual do Badge Superior e Labels
+      if (activeSlot) {
+        statusText.textContent = 'AO VIVO AGORA NO YOUTUBE!';
         statusText.className = 'text-crimson';
         statusDot.className = 'w-2.5 h-2.5 rounded-full bg-crimson animate-ping';
         statusBadge.classList.remove('border-neonblue/40');
         statusBadge.classList.add('border-crimson/70');
-        countdownLabel.textContent = 'Transmissão em Andamento';
-        nextStreamInfo.textContent = `Encerramento previsto às ${String(todaySlot.endH).padStart(2, '0')}:${String(todaySlot.endM).padStart(2, '0')}`;
-      } else if (isSoonToday) {
-        statusText.textContent = `EM BREVE HOJE ÀS ${String(todaySlot.startH).padStart(2, '0')}:${String(todaySlot.startM).padStart(2, '0')}`;
+        countdownLabel.textContent = `Transmissão de ${activeSlot.name} em Andamento`;
+        nextStreamInfo.textContent = `Encerramento previsto às ${activeSlot.endLabel} (BRT)`;
+      } else if (soonSlot) {
+        const formattedTime = `${String(soonSlot.startH).padStart(2, '0')}:${String(soonSlot.startM).padStart(2, '0')}`;
+        statusText.textContent = `OFFLINE • PRÓXIMA LIVE EM BREVE (${formattedTime})`;
         statusText.className = 'text-amber-300';
         statusDot.className = 'w-2.5 h-2.5 rounded-full bg-amber-400 animate-ping';
+        statusBadge.classList.remove('border-crimson/70');
+        statusBadge.classList.add('border-neonblue/40');
         countdownLabel.textContent = 'Aquecendo os Motores — Começa em';
+        nextStreamInfo.textContent = `Hoje (${soonSlot.name}) às ${formattedTime} (BRT)`;
       } else if (nextSlotObj) {
         const formattedTime = `${String(nextSlotObj.startH).padStart(2, '0')}:${String(nextSlotObj.startM).padStart(2, '0')}`;
-        statusText.textContent = `PRÓXIMA LIVE: ${nextSlotObj.name.toUpperCase()} ÀS ${formattedTime}`;
+        statusText.textContent = 'OFFLINE • PRÓXIMA LIVE EM BREVE';
         statusText.className = 'text-neonblue';
         statusDot.className = 'w-2.5 h-2.5 rounded-full bg-neonblue animate-pulse';
+        statusBadge.classList.remove('border-crimson/70');
+        statusBadge.classList.add('border-neonblue/40');
         countdownLabel.textContent = 'Contagem Regressiva para a Próxima Live';
-        nextStreamInfo.textContent = `${nextSlotObj.name} às ${formattedTime} (BRT)`;
+        nextStreamInfo.textContent = `${nextSlotObj.name} às ${formattedTime} (Horário de Brasília)`;
       }
 
       // Atualiza números do Countdown
-      if (nextTarget) {
-        const diff = Math.max(0, nextTarget - now);
+      if (nextTargetMs !== null) {
+        const diff = Math.max(0, nextTargetMs - brt.wallMs);
         const days = Math.floor(diff / (1000 * 60 * 60 * 24));
         const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
         const mins = Math.floor((diff / 1000 / 60) % 60);
@@ -1029,26 +1182,73 @@
     setInterval(updateStreamStatusAndCountdown, 1000);
 
     // ==========================================
-    // 3. PROGRESSO INTERATIVO DO CICLO (3 SEMANAS)
+    // 3. PROGRESSO INTERATIVO DO CICLO (9 LIVES / 30H)
     // ==========================================
+    const LIVE_HOURS_MAP = [2.5, 3.5, 4.0, 2.5, 3.5, 4.0, 2.5, 3.5, 4.0];
+    const STORAGE_LIVES_KEY = 'ren_akabane_pbz_completed_lives';
+
+    function getCompletedLivesState() {
+      try {
+        const saved = JSON.parse(localStorage.getItem(STORAGE_LIVES_KEY));
+        if (Array.isArray(saved) && saved.length === 9) return saved;
+      } catch (e) {}
+      return [false, false, false, false, false, false, false, false, false];
+    }
+
+    function saveCompletedLivesState(arr) {
+      localStorage.setItem(STORAGE_LIVES_KEY, JSON.stringify(arr));
+      renderCampaignProgress();
+    }
+
+    function toggleSingleLive(index) {
+      const state = getCompletedLivesState();
+      state[index] = !state[index];
+      saveCompletedLivesState(state);
+    }
+
+    function adjustCompletedLives(delta) {
+      const state = getCompletedLivesState();
+      const count = state.filter(Boolean).length;
+      const targetCount = Math.max(0, Math.min(9, count + delta));
+      const updated = state.map((_, idx) => idx < targetCount);
+      saveCompletedLivesState(updated);
+    }
+
+    function renderCampaignProgress() {
+      const state = getCompletedLivesState();
+      const completedCount = state.filter(Boolean).length;
+      const pct = Math.round((completedCount / 9) * 100);
+      const completedHours = state.reduce((acc, done, idx) => acc + (done ? LIVE_HOURS_MAP[idx] : 0), 0);
+
+      document.getElementById('campaign-progress-bar').style.width = `${pct}%`;
+      document.getElementById('progress-percent').textContent = `${pct}%`;
+      document.getElementById('cycle-progress-text').textContent = `${completedCount} / 9 Lives`;
+      document.getElementById('hours-completed-label').textContent = `${completedHours.toFixed(1).replace('.', ',')}h / 30,0h jogadas`;
+
+      const container = document.getElementById('live-check-pills');
+      container.innerHTML = '';
+      state.forEach((done, idx) => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.onclick = () => toggleSingleLive(idx);
+        btn.title = `Live #${idx + 1} (${LIVE_HOURS_MAP[idx].toFixed(1)}h)`;
+        btn.className = done
+          ? 'py-1.5 px-2 rounded-lg bg-crimson text-white font-display font-bold text-xs border border-crimson shadow-neon-crimson transition cursor-pointer'
+          : 'py-1.5 px-2 rounded-lg bg-slate-900/90 hover:bg-slate-800 text-slate-400 hover:text-white font-display font-bold text-xs border border-slate-800 transition cursor-pointer';
+        btn.textContent = `#${idx + 1}`;
+        container.appendChild(btn);
+      });
+    }
+
     const WEEK_DATA = {
       1: {
-        pct: '33.3%',
-        label: '33%',
-        title: 'Semana 1 / 3',
-        detail: '<strong class="text-white">Foco da Semana 1 (Lives #01 a #03):</strong> Estabelecer o ritmo de combate na Jornada Suprema (NG+), dominando a leitura de postura dos chefes iniciais e separando clipes para Shorts.'
+        detail: '<strong class="text-white">Foco da Semana 1 (Lives #1 a #3 — 26/11 a 28/11):</strong> Estabelecer o ritmo de combate na Jornada Suprema (NG+), completando o Ato 1 na quinta (21h30), avançando nos chefes iniciais na sexta (21h30) e fechando a primeira metade na live especial de sábado (15h00).'
       },
       2: {
-        pct: '66.6%',
-        label: '67%',
-        title: 'Semana 2 / 3',
-        detail: '<strong class="text-white">Foco da Semana 2 (Lives #04 a #06):</strong> Avançar pelos guardiões intermediários, explorar áreas ocultas e derrotar os chefes opcionais mais agressivos antes da reta final.'
+        detail: '<strong class="text-white">Foco da Semana 2 (Lives #4 a #6 — 03/12 a 05/12):</strong> Avançar pelos guardiões intermediários na quinta e sexta (21h30), e dedicar a live especial de sábado à tarde (15h00) à limpeza dos chefes opcionais extremos.'
       },
       3: {
-        pct: '100%',
-        label: '100%',
-        title: 'Semana 3 / 3',
-        detail: '<strong class="text-white">Foco da Semana 3 (Lives #07 a #09):</strong> Reta final até o chefe último da Jornada Suprema na sexta-feira (11/12), seguido pelo vídeo compilado de Melhores Momentos no YouTube!'
+        detail: '<strong class="text-white">Foco da Semana 3 (Lives #7 a #9 — 10/12 a 12/12):</strong> Marcha final até os portões da fortaleza na quinta e sexta, culminando no confronto definitivo contra o chefe final no Sábado (12/12 às 15h00)!'
       }
     };
 
@@ -1056,9 +1256,6 @@
       const data = WEEK_DATA[weekNum];
       if (!data) return;
 
-      document.getElementById('campaign-progress-bar').style.width = data.pct;
-      document.getElementById('progress-percent').textContent = data.label;
-      document.getElementById('cycle-progress-text').textContent = data.title;
       document.getElementById('week-detail-text').innerHTML = data.detail;
 
       [1, 2, 3].forEach(num => {
@@ -1072,6 +1269,8 @@
         }
       });
     }
+
+    renderCampaignProgress();
 
     // ==========================================
     // 4. VOTAÇÃO DA COMUNIDADE (LOCALSTORAGE)
@@ -1113,7 +1312,7 @@
     function castVote(choice) {
       localStorage.setItem('ren_akabane_next_game_vote', choice);
       renderVotes();
-      const gameName = choice === 'elden' ? 'Elden Ring' : 'Code Vein';
+      const gameName = choice === 'elden' ? 'Elden Ring (Shadow of the Erdtree)' : 'Code Vein';
       showToast('Voto Registrado!', `Você votou em ${gameName} para o próximo ciclo.`);
     }
 
