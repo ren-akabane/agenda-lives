@@ -293,7 +293,7 @@
               <span>Campanha Principal em Andamento</span>
             </div>
             <h2 class="font-display font-extrabold text-2xl sm:text-3xl text-white tracking-wide">
-              PHANTOM BLADE ZERO: <span class="text-crimson">JORNADA SUPREMA (NG+)</span>
+              <span id="campanha-titulo">PHANTOM BLADE ZERO:</span> <span id="campanha-subtitulo" class="text-crimson">JORNADA SUPREMA (NG+)</span>
             </h2>
             <p class="text-slate-300 text-sm sm:text-base max-w-2xl">
               Meta especial de <strong class="text-white">3 semanas (9 lives)</strong> para zerar a campanha completa na dificuldade máxima derrotando todos os chefes principais e opcionais no <span class="text-neonblue font-semibold">parry</span>.
@@ -337,7 +337,7 @@
             <!-- Botões Rápidos das 9 Lives (Clique para marcar/desmarcar) -->
             <div class="bg-obsidian/75 border border-slate-800/90 rounded-xl p-3.5 space-y-2.5">
               <div class="flex items-center justify-between text-xs font-tech">
-                <span class="text-slate-400 uppercase tracking-wider font-semibold">Marcar Lives Concluídas (Salvo no Navegador):</span>
+                <span class="text-slate-400 uppercase tracking-wider font-semibold">Marcar Lives Concluídas (Sincronizado):</span>
                 <span id="hours-completed-label" class="text-neonblue font-bold">0,0h / 30,0h jogadas</span>
               </div>
               <div id="live-check-pills" class="grid grid-cols-3 sm:grid-cols-9 gap-1.5">
@@ -497,10 +497,10 @@
               <span class="px-2.5 py-1 rounded-lg bg-neonblue/15 border border-neonblue/30 text-neonblue font-tech font-bold text-xs uppercase tracking-wider">
                 Live Curta
               </span>
-              <span class="font-tech text-xs text-slate-400 font-semibold">2h30 de duração</span>
+              <span id="dur-card-4" class="font-tech text-xs text-slate-400 font-semibold">2h30 de duração</span>
             </div>
             <h3 class="font-display font-bold text-xl text-white">QUINTA-FEIRA</h3>
-            <p class="font-tech font-bold text-2xl text-neonblue mt-1">21:30 – 00:00</p>
+            <p id="time-card-4" class="font-tech font-bold text-2xl text-neonblue mt-1">21:30 – 00:00</p>
             <p class="text-xs sm:text-sm text-slate-300 mt-3 leading-relaxed">
               <strong class="text-white">Progressão &amp; Chefes:</strong> Abertura da grade semanal pós-expediente Home Office (21h), focada em avanço direto e treino de parry.
             </p>
@@ -518,10 +518,10 @@
               <span class="px-2.5 py-1 rounded-lg bg-blue-500/15 border border-blue-400/30 text-blue-300 font-tech font-bold text-xs uppercase tracking-wider">
                 Live Principal
               </span>
-              <span class="font-tech text-xs text-slate-400 font-semibold">3h30 de duração</span>
+              <span id="dur-card-5" class="font-tech text-xs text-slate-400 font-semibold">3h30 de duração</span>
             </div>
             <h3 class="font-display font-bold text-xl text-white">SEXTA-FEIRA</h3>
-            <p class="font-tech font-bold text-2xl text-neonblue mt-1">21:30 – 01:00</p>
+            <p id="time-card-5" class="font-tech font-bold text-2xl text-neonblue mt-1">21:30 – 01:00</p>
             <p class="text-xs sm:text-sm text-slate-300 mt-3 leading-relaxed">
               <strong class="text-white">Combate Intenso &amp; Desafios:</strong> Sessão noturna estendida aproveitando a folga de sábado para encarar chefes difíceis sem pressa.
             </p>
@@ -539,10 +539,10 @@
               <span class="px-2.5 py-1 rounded-lg bg-crimson/20 border border-crimson/40 text-crimson font-tech font-bold text-xs uppercase tracking-wider">
                 Live Especial da Tarde
               </span>
-              <span class="font-tech text-xs text-slate-400 font-semibold">4h00 de duração</span>
+              <span id="dur-card-6" class="font-tech text-xs text-slate-400 font-semibold">4h00 de duração</span>
             </div>
             <h3 class="font-display font-bold text-xl text-white">SÁBADO</h3>
-            <p class="font-tech font-bold text-2xl text-crimson mt-1">15:00 – 19:00</p>
+            <p id="time-card-6" class="font-tech font-bold text-2xl text-crimson mt-1">15:00 – 19:00</p>
             <p class="text-xs sm:text-sm text-slate-300 mt-3 leading-relaxed">
               <strong class="text-white">Chefes Opcionais &amp; Clímax:</strong> Maratona vespertina em horário nobre de fim de semana, áreas secretas e fechamento dos atos.
             </p>
@@ -965,7 +965,7 @@
 
       <div class="mt-8 pt-6 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-slate-500">
         <p>&copy; 2026 Ren Akabane (@ren_akabane). Todos os direitos reservados.</p>
-        <p>Pronto para GitHub Pages &bull; Feito para a comunidade Soulslike</p>
+        <p>Integrado com agenda.json &bull; GitHub Pages</p>
       </div>
     </div>
   </footer>
@@ -1009,14 +1009,17 @@
     }
 
     function copyScheduleText() {
+      const lines = STREAM_SLOTS.map(s => {
+        const start = `${String(s.startH).padStart(2, '0')}:${String(s.startM).padStart(2, '0')}`;
+        return `• ${s.name}: ${start} – ${s.endLabel}`;
+      }).join('\n');
+
       const text =
-        "🐺 AGENDA OFICIAL DE LIVES — REN AKABANE (@ren_akabane)\n" +
-        "• Quinta-feira: 21:30 – 00:00 (2h30 • Live Curta — Progressão & Chefes)\n" +
-        "• Sexta-feira: 21:30 – 01:00 (3h30 • Live Principal — Combate Intenso & Desafios)\n" +
-        "• Sábado: 15:00 – 19:00 (4h00 • Live Especial da Tarde — Chefes Opcionais & Clímax)\n" +
-        "📺 YouTube: https://www.youtube.com/@ren_akabane\n" +
-        "💬 Discord: https://discord.gg/8ymvd3EGn";
-      fallbackCopyText(text, 'Horários Copiados!', 'Grade oficial (Qui/Sex 21h30, Sáb 15h00) pronta para colar.');
+        `🐺 AGENDA OFICIAL DE LIVES — REN AKABANE (@ren_akabane)\n` +
+        `${lines}\n` +
+        `📺 YouTube: https://www.youtube.com/@ren_akabane\n` +
+        `💬 Discord: https://discord.gg/8ymvd3EGn`;
+      fallbackCopyText(text, 'Horários Copiados!', 'Grade oficial atualizada pronta para colar.');
     }
 
     function copySetupSpecs() {
@@ -1045,11 +1048,31 @@
     // ==========================================
     // 2. DETECTOR DE STATUS DA LIVE & COUNTDOWN (BRT / UTC-3)
     // ==========================================
-    const STREAM_SLOTS = [
+    let STREAM_SLOTS = [
       { day: 4, name: 'Quinta-feira', startH: 21, startM: 30, durationMins: 150, endLabel: '00:00' },
       { day: 5, name: 'Sexta-feira', startH: 21, startM: 30, durationMins: 210, endLabel: '01:00' },
       { day: 6, name: 'Sábado', startH: 15, startM: 0, durationMins: 240, endLabel: '19:00' }
     ];
+
+    function formatDurationLabel(mins) {
+      const h = Math.floor(mins / 60);
+      const m = mins % 60;
+      return `${h}h${String(m).padStart(2, '0')} de duração`;
+    }
+
+    function updateWeeklyCardsUI() {
+      STREAM_SLOTS.forEach(slot => {
+        const timeEl = document.getElementById(`time-card-${slot.day}`);
+        const durEl = document.getElementById(`dur-card-${slot.day}`);
+        if (timeEl) {
+          const startStr = `${String(slot.startH).padStart(2, '0')}:${String(slot.startM).padStart(2, '0')}`;
+          timeEl.textContent = `${startStr} – ${slot.endLabel}`;
+        }
+        if (durEl && slot.durationMins) {
+          durEl.textContent = formatDurationLabel(slot.durationMins);
+        }
+      });
+    }
 
     function getBrasiliaDateParts() {
       const now = new Date();
@@ -1345,7 +1368,42 @@
     }
 
     // ==========================================
-    // 6. PARTÍCULAS SUTIS DE FUNDO (BRASAS & NEON)
+    // 6. SINCRONIZAÇÃO AUTOMÁTICA COM agenda.json
+    // ==========================================
+    async function carregarConfiguracaoRemota() {
+      try {
+        const res = await fetch('agenda.json?v=' + Date.now());
+        if (!res.ok) return;
+        const dados = await res.json();
+
+        // Atualiza horários da grade, cards semanais e countdown
+        if (Array.isArray(dados.horarios_semanais) && dados.horarios_semanais.length > 0) {
+          STREAM_SLOTS = dados.horarios_semanais;
+          updateWeeklyCardsUI();
+          updateStreamStatusAndCountdown();
+        }
+
+        // Atualiza título/subtítulo da campanha atual e progresso oficial das 9 lives
+        if (dados.campanha_atual) {
+          if (dados.campanha_atual.titulo) {
+            document.getElementById('campanha-titulo').textContent = dados.campanha_atual.titulo;
+          }
+          if (dados.campanha_atual.subtitulo) {
+            document.getElementById('campanha-subtitulo').textContent = dados.campanha_atual.subtitulo;
+          }
+          if (Array.isArray(dados.campanha_atual.lives_concluidas) && dados.campanha_atual.lives_concluidas.length === 9) {
+            saveCompletedLivesState(dados.campanha_atual.lives_concluidas);
+          }
+        }
+      } catch (e) {
+        console.warn('Usando configuração padrão embutida:', e);
+      }
+    }
+
+    carregarConfiguracaoRemota();
+
+    // ==========================================
+    // 7. PARTÍCULAS SUTIS DE FUNDO (BRASAS & NEON)
     // ==========================================
     window.addEventListener('load', () => {
       const canvas = document.getElementById('particle-canvas');
