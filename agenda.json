@@ -1,36 +1,43 @@
 {
-  "config": {
-    "titulo_canal": "REN AKABANE",
-    "subtitulo": "CRONOGRAMA OFICIAL DE LIVES",
-    "campanha_atual": "Phantom Blade Zero • Rumo ao Fim",
-    "progresso_campanha":40,
-    "youtube_url": "https://www.youtube.com/@ren_akabane",
-    "proxima_live_iso": "2026-11-26T21:30:00-03:00"
-  },
-  "lives": [
+  "horarios_semanais": [
     {
-      "dia": "QUINTA-FEIRA",
-      "data": "26/11",
-      "horario": "21:30",
-      "jogo": "Phantom Blade Zero",
-      "descricao": "Avançando na campanha principal e chefes",
-      "status": "confirmada"
+      "day": 4,
+      "name": "Quinta-feira",
+      "startH": 21,
+      "startM": 30,
+      "durationMins": 150,
+      "endLabel": "00:00"
     },
     {
-      "dia": "SEXTA-FEIRA",
-      "data": "27/11",
-      "horario": "21:30",
-      "jogo": "Phantom Blade Zero",
-      "descricao": "Exploração lateral e combate intenso",
-      "status": "confirmada"
+      "day": 5,
+      "name": "Sexta-feira",
+      "startH": 21,
+      "startM": 30,
+      "durationMins": 210,
+      "endLabel": "01:00"
     },
     {
-      "dia": "SÁBADO",
-      "data": "28/11",
-      "horario": "15:00",
-      "jogo": "Especial Soulslike / Action RPG",
-      "descricao": "Sessão estendida da tarde com o chat",
-      "status": "confirmada"
+      "day": 6,
+      "name": "Sábado",
+      "startH": 15,
+      "startM": 0,
+      "durationMins": 240,
+      "endLabel": "19:00"
     }
-  ]
+  ],
+  "campanha_atual": {
+    "titulo": "PHANTOM BLADE ZERO:",
+    "subtitulo": "JORNADA SUPREMA (NG+)",
+    "lives_concluidas": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false
+    ]
+  }
 }
