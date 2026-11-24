@@ -123,5 +123,5 @@ O projeto separa completamente a camada de apresentação (`index.html`) da cama
 
 Desenvolvido por **Bruno de Souza Silva** (`@ren_akabane`) — Analista de Dados & Automação.
 
-- **LinkedIn:** [Conecte-se comigo](https://www.linkedin.com/)
+- **LinkedIn:** [Conecte-se comigo](https://www.linkedin.com/in/brunosouzasilva-bi/)
 - **YouTube:** [@ren_akabane](https://www.youtube.com/@ren_akabane)
