@@ -1,0 +1,23 @@
+name: Aviso de Live no Discord
+
+on:
+  schedule:
+    # Quinta e Sexta às 21:25 BRT (00:25 UTC de Sexta e Sábado)
+    - cron: '25 0 * * 5,6'
+    # Sábado às 14:55 BRT (17:55 UTC de Sábado)
+    - cron: '55 17 * * 6'
+  workflow_dispatch: # Permite testar manualmente com 1 clique
+
+jobs:
+  notificar-discord:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Enviar mensagem para o Discord
+        env:
+          WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK }}
+        run: |
+          curl -H "Content-Type: application/json" \
+          -d '{
+            "content": "@everyone 🐺 **A ALCATEIA VAI ENTRAR AO VIVO EM INSTANTES!**\n\n⚔️ Cola na live de hoje no YouTube: https://www.youtube.com/@ren_akabane/live\n📅 Agenda completa e votação do próximo jogo: https://brunoakabane.github.io/"
+          }' \
+          "$WEBHOOK_URL"
