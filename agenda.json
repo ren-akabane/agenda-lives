@@ -1,0 +1,27 @@
+{
+  "atualizado_em": "24/11/2026",
+  "status_geral": "Semana normal de lives",
+  "lives": [
+    {
+      "dia": "Quinta-feira",
+      "horario": "21:30",
+      "jogo": "Phantom Blade Zero",
+      "plataforma": "YouTube & Kick",
+      "status": "Confirmada"
+    },
+    {
+      "dia": "Sexta-feira",
+      "horario": "21:30",
+      "jogo": "Elden Ring",
+      "plataforma": "YouTube & Kick",
+      "status": "Confirmada"
+    },
+    {
+      "dia": "Sábado",
+      "horario": "15:00",
+      "jogo": "Code Vein",
+      "plataforma": "YouTube & Kick",
+      "status": "Confirmada"
+    }
+  ]
+}
