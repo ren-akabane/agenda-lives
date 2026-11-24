@@ -1,27 +1,36 @@
 {
-  "atualizado_em": "24/11/2026",
-  "status_geral": "Semana normal de lives",
+  "config": {
+    "titulo_canal": "REN AKABANE",
+    "subtitulo": "CRONOGRAMA OFICIAL DE LIVES",
+    "campanha_atual": "Phantom Blade Zero • Rumo ao Fim",
+    "progresso_campanha": 35,
+    "youtube_url": "https://www.youtube.com/@ren_akabane",
+    "proxima_live_iso": "2026-11-26T21:30:00-03:00"
+  },
   "lives": [
     {
-      "dia": "Quinta-feira",
+      "dia": "QUINTA-FEIRA",
+      "data": "26/11",
       "horario": "21:30",
       "jogo": "Phantom Blade Zero",
-      "plataforma": "YouTube & Kick",
-      "status": "Confirmada"
+      "descricao": "Avançando na campanha principal e chefes",
+      "status": "confirmada"
     },
     {
-      "dia": "Sexta-feira",
+      "dia": "SEXTA-FEIRA",
+      "data": "27/11",
       "horario": "21:30",
-      "jogo": "Elden Ring",
-      "plataforma": "YouTube & Kick",
-      "status": "Confirmada"
+      "jogo": "Phantom Blade Zero",
+      "descricao": "Exploração lateral e combate intenso",
+      "status": "confirmada"
     },
     {
-      "dia": "Sábado",
+      "dia": "SÁBADO",
+      "data": "28/11",
       "horario": "15:00",
-      "jogo": "Code Vein",
-      "plataforma": "YouTube & Kick",
-      "status": "Confirmada"
+      "jogo": "Especial Soulslike / Action RPG",
+      "descricao": "Sessão estendida da tarde com o chat",
+      "status": "confirmada"
     }
   ]
 }
