@@ -2,25 +2,112 @@ name: Aviso de Live no Discord
 
 on:
   schedule:
-    # Quinta e Sexta às 21:25 BRT (00:25 UTC de Sexta e Sábado)
-    - cron: '25 0 * * 5,6'
-    # Sábado às 14:55 BRT (17:55 UTC de Sábado)
-    - cron: '55 17 * * 6'
-  workflow_dispatch: # Permite testar manualmente com 1 clique
+    # A cada 5 minutos, das 09h às 23h59 (BRT) = 12:00–02:59 UTC.
+    # Os horários das lives NÃO ficam mais aqui: vêm do agenda.json.
+    - cron: '*/5 0-2,12-23 * * *'
+  workflow_dispatch:
+    inputs:
+      forcar:
+        description: 'Enviar mensagem de TESTE agora (sem @everyone)'
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: aviso-live
+  cancel-in-progress: false
 
 jobs:
   notificar-discord:
     runs-on: ubuntu-latest
     steps:
+      - name: Baixar o repositório (agenda.json)
+        uses: actions/checkout@v4
+
+      - name: Verificar se há live começando
+        id: janela
+        env:
+          FORCAR: ${{ github.event.inputs.forcar }}
+        run: |
+          python3 - <<'PY'
+          import json
+          import os
+          from datetime import datetime, timedelta, timezone
+
+          BRT = timezone(timedelta(hours=-3))
+          agora = datetime.now(BRT)
+          forcar = os.environ.get("FORCAR") == "true"
+
+          with open("agenda.json", encoding="utf-8") as f:
+              dados = json.load(f)
+
+          # No agenda.json: 0 = domingo ... 6 = sábado (Python: segunda = 0)
+          hoje = (agora.weekday() + 1) % 7
+
+          def limpa(texto):
+              # Impede que texto do agenda.json dispare menções no Discord
+              return str(texto or "").replace("@", "@\u200b")
+
+          escolhido = None
+          for h in dados.get("horarios_semanais", []):
+              if h.get("day") != hoje:
+                  continue
+              inicio = agora.replace(hour=int(h["startH"]), minute=int(h["startM"]), second=0, microsecond=0)
+              delta = (inicio - agora).total_seconds() / 60
+              # Avisa a partir de ~5 min antes; tolera atraso da fila do GitHub (até 10 min depois)
+              if -10 <= delta <= 6:
+                  escolhido = (h, delta)
+                  break
+
+          camp = dados.get("campanha_atual", {})
+          jogo = f"{limpa(camp.get('titulo'))} {limpa(camp.get('subtitulo'))}".strip()
+          rodape = (
+              ("🎮 Ciclo atual: " + jogo + "\n" if jogo else "")
+              + "⚔️ Cola na live de hoje no YouTube: https://www.youtube.com/@ren_akabane/live\n"
+              + "📅 Agenda completa e votação do próximo jogo: https://ren-akabane.github.io/agenda-lives/"
+          )
+
+          enviar, chave, payload = "false", "", None
+
+          if forcar:
+              enviar = "true"
+              chave = "teste-" + os.environ.get("GITHUB_RUN_ID", "0")
+              payload = {"content": "🧪 **TESTE DO AVISO DE LIVE** (sem @everyone)\n\n" + rodape,
+                         "allowed_mentions": {"parse": []}}
+          elif escolhido:
+              h, delta = escolhido
+              enviar = "true"
+              chave = f"{agora:%Y-%m-%d}-{int(h['startH']):02d}{int(h['startM']):02d}"
+              abertura = ("🐺 **A ALCATEIA VAI ENTRAR AO VIVO EM INSTANTES!**" if delta > 0
+                          else "🐺 **A LIVE JÁ COMEÇOU! COLA NA ALCATEIA!**")
+              payload = {"content": "@everyone " + abertura + "\n\n" + rodape,
+                         "allowed_mentions": {"parse": ["everyone"]}}
+
+          if payload:
+              with open("payload.json", "w", encoding="utf-8") as f:
+                  json.dump(payload, f, ensure_ascii=False)
+
+          with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as f:
+              f.write(f"enviar={enviar}\nchave={chave}\n")
+          print(f"Agora (BRT): {agora:%d/%m/%Y %H:%M} | enviar={enviar} | chave={chave}")
+          PY
+
+      # Se já existe cache com esta chave, o aviso desta live já foi enviado.
+      - name: Evitar aviso duplicado
+        if: steps.janela.outputs.enviar == 'true'
+        id: dedupe
+        uses: actions/cache@v4
+        with:
+          path: .aviso
+          key: aviso-${{ steps.janela.outputs.chave }}
+
       - name: Enviar mensagem para o Discord
+        if: steps.janela.outputs.enviar == 'true' && steps.dedupe.outputs.cache-hit != 'true'
         env:
           WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK }}
         run: |
-          curl -f -H "Content-Type: application/json" \
-            -d '{
-              "content": "@everyone 🐺 **A ALCATEIA VAI ENTRAR AO VIVO EM INSTANTES!**\n\n⚔️ Cola na live de hoje no YouTube: https://www.youtube.com/@ren_akabane/live\n📅 Agenda completa e votação do próximo jogo: https://ren-akabane.github.io/agenda-lives/",
-              "allowed_mentions": {
-                "parse": ["everyone"]
-              }
-            }' \
-            "$WEBHOOK_URL"
+          curl -f -H "Content-Type: application/json" -d @payload.json "$WEBHOOK_URL"
+          mkdir -p .aviso
+          date > .aviso/enviado.txt
