@@ -9,7 +9,7 @@
   "campanha_atual": {
     "titulo": "PHANTOM BLADE ZERO:",
     "subtitulo": "JORNADA SUPREMA (NG+)",
-    "lives_concluidas": [false, false, false, false, false, false, false, false, false]
+    "lives_concluidas": [true, false, false, false, false, false, false, false, false]
   },
   "enquete": {
     "pergunta": "Qual será o próximo ciclo após zerarmos Phantom Blade Zero?",
