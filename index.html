@@ -431,16 +431,16 @@
                 </div>
               </button>
 
-              <!-- Opção 3: Onimusha: Way of the Sword -->
-              <button type="button" onclick="castVote('onimusha')" id="vote-btn-onimusha" class="w-full text-left p-3.5 rounded-xl bg-slate-900/90 border border-slate-700/80 hover:border-cyan-400/60 transition relative overflow-hidden group cursor-pointer">
-                <div id="bar-onimusha" class="absolute inset-y-0 left-0 bg-cyan-500/15 transition-all duration-500" style="width: 34%;"></div>
+              <!-- Opção 3: Black Myth: Wukong -->
+              <button type="button" onclick="castVote('wukong')" id="vote-btn-wukong" class="w-full text-left p-3.5 rounded-xl bg-slate-900/90 border border-slate-700/80 hover:border-cyan-400/60 transition relative overflow-hidden group cursor-pointer">
+                <div id="bar-wukong" class="absolute inset-y-0 left-0 bg-cyan-500/15 transition-all duration-500" style="width: 0%;"></div>
                 <div class="relative z-10 flex items-center justify-between gap-2">
                   <div class="flex items-center gap-2.5 flex-wrap">
-                    <i class="fa-solid fa-torii-gate text-cyan-400"></i>
-                    <span class="font-tech font-bold text-white text-base">Onimusha: Way of the Sword</span>
-                    <span id="check-onimusha" class="hidden text-xs px-2 py-0.5 rounded bg-cyan-400/20 text-cyan-300 font-tech font-bold">Seu voto</span>
+                    <i class="fa-solid fa-staff-snake text-cyan-400"></i>
+                    <span class="font-tech font-bold text-white text-base">Black Myth: Wukong</span>
+                    <span id="check-wukong" class="hidden text-xs px-2 py-0.5 rounded bg-cyan-400/20 text-cyan-300 font-tech font-bold">Seu voto</span>
                   </div>
-                  <span id="pct-onimusha" class="font-display font-bold text-sm text-cyan-300 shrink-0">34%</span>
+                  <span id="pct-wukong" class="font-display font-bold text-sm text-cyan-300 shrink-0">0%</span>
                 </div>
               </button>
             </div>
@@ -795,37 +795,35 @@
           </div>
         </article>
 
-        <!-- Card 5: Solo Leveling: Arise -->
-        <article class="glass-card rounded-2xl overflow-hidden flex flex-col group">
-          <div class="h-40 relative bg-gradient-to-br from-slate-900 via-sky-950/60 to-obsidian p-5 flex flex-col justify-between overflow-hidden">
-            <div class="absolute right-3 bottom-1 opacity-20 group-hover:opacity-35 transition transform group-hover:scale-110">
-              <i class="fa-solid fa-bolt text-7xl text-neonblue"></i>
-            </div>
-            <div class="flex items-center justify-between relative z-10">
-              <span class="px-2.5 py-1 rounded-full bg-sky-500/20 border border-sky-400/35 text-sky-300 font-tech font-bold text-[11px] uppercase tracking-wider">
-                Na Rotação
-              </span>
-              <span class="font-tech text-[11px] font-bold text-sky-200 bg-obsidian/60 px-2 py-0.5 rounded-lg">Action RPG</span>
-            </div>
-            <div class="relative z-10">
-              <p class="font-tech text-[11px] uppercase tracking-widest text-sky-300 font-bold">Hunter &amp; Shadow Army</p>
-              <h3 class="font-display font-extrabold text-lg text-white mt-0.5 leading-tight">SOLO LEVELING: ARISE</h3>
-            </div>
-          </div>
-          <div class="p-4 flex-grow flex flex-col justify-between space-y-4">
-            <p class="text-xs text-slate-300 leading-relaxed">
-              Combos velozes com adagas, esquiva extrema e invocação das sombras nas masmorras e chefes de alto nível.
-            </p>
-            <div class="flex items-center justify-between pt-3 border-t border-slate-800/80 text-xs font-tech">
-              <span class="text-sky-400 font-bold uppercase tracking-wider">Série Especial</span>
-              <a href="https://discord.gg/8ymvd3EGn" target="_blank" rel="noopener noreferrer" class="text-slate-300 hover:text-neonblue font-bold">
-                Sugerir &rarr;
-              </a>
-            </div>
-          </div>
-        </article>
-      </div>
-    </section>
+<!-- Card 5: Black Myth: Wukong -->
+<article class="glass-card rounded-2xl overflow-hidden flex flex-col group">
+  <div class="h-40 relative bg-gradient-to-br from-slate-900 via-cyan-950/60 to-obsidian p-5 flex flex-col justify-between overflow-hidden">
+    <div class="absolute right-3 bottom-1 opacity-20 group-hover:opacity-35 transition transform group-hover:scale-110">
+      <i class="fa-solid fa-staff-snake text-7xl text-cyan-400"></i>
+    </div>
+    <div class="flex items-center justify-between relative z-10">
+      <span class="px-2.5 py-1 rounded-full bg-cyan-500/20 border border-cyan-400/35 text-cyan-300 font-tech font-bold text-[11px] uppercase tracking-wider">
+        Candidato Enquete
+      </span>
+      <span class="font-tech text-[11px] font-bold text-cyan-200 bg-obsidian/60 px-2 py-0.5 rounded-lg">Action RPG</span>
+    </div>
+    <div class="relative z-10">
+      <p class="font-tech text-[11px] uppercase tracking-widest text-cyan-300 font-bold">Mythic Action &amp; Bosses</p>
+      <h3 class="font-display font-extrabold text-lg text-white mt-0.5 leading-tight">BLACK MYTH: WUKONG</h3>
+    </div>
+  </div>
+  <div class="p-4 flex-grow flex flex-col justify-between space-y-4">
+    <p class="text-xs text-slate-300 leading-relaxed">
+      Combate ágil com bastão, leitura de padrões, posturas e chefes intensos em um universo sombrio inspirado na mitologia chinesa.
+    </p>
+    <div class="flex items-center justify-between pt-3 border-t border-slate-800/80 text-xs font-tech">
+      <span class="text-cyan-400 font-bold uppercase tracking-wider">Opção #3</span>
+      <a href="#ciclo-atual" class="text-slate-300 hover:text-neonblue font-bold">
+        Votar &rarr;
+      </a>
+    </div>
+  </div>
+</article>
 
     <!-- 5. SETUP TÉCNICO & TRANSMISSÃO -->
     <section id="setup" class="max-w-6xl mx-auto px-4 sm:px-6 py-12">
