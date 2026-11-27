@@ -18,6 +18,6 @@ jobs:
         run: |
           curl -H "Content-Type: application/json" \
           -d '{
-            "content": "@everyone 🐺 **A ALCATEIA VAI ENTRAR AO VIVO EM INSTANTES!**\n\n⚔️ Cola na live de hoje no YouTube: https://www.youtube.com/@ren_akabane/live\n📅 Agenda completa e votação do próximo jogo: https://brunoakabane.github.io/"
+            "content": "@everyone 🐺 **A ALCATEIA VAI ENTRAR AO VIVO EM INSTANTES!**\n\n⚔️ Cola na live de hoje no YouTube: https://www.youtube.com/@ren_akabane/live\n📅 Agenda completa e votação do próximo jogo: https://ren-akabane.github.io/agenda-lives/"
           }' \
           "$WEBHOOK_URL"
