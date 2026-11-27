@@ -1,1 +1,43 @@
-{"horarios_semanais":[{"day":4,"name":"Quinta-feira","startH":21,"startM":30,"durationMins":150,"endLabel":"00:00"},{"day":5,"name":"Sexta-feira","startH":21,"startM":30,"durationMins":210,"endLabel":"01:00"},{"day":6,"name":"Sábado","startH":15,"startM":0,"durationMins":240,"endLabel":"19:00"}],"campanha_atual":{"titulo":"PHANTOM BLADE ZERO:","subtitulo":"JORNADA SUPREMA (NG+)","lives_concluidas":[false,false,false,false,false,false,false,false,false]}}
+{
+    "horarios_semanais": [
+        {
+            "day": 4,
+            "name": "Quinta-feira",
+            "startH": 21,
+            "startM": 30,
+            "durationMins": 150,
+            "endLabel": "00:00"
+        },
+        {
+            "day": 5,
+            "name": "Sexta-feira",
+            "startH": 21,
+            "startM": 30,
+            "durationMins": 210,
+            "endLabel": "01:00"
+        },
+        {
+            "day": 6,
+            "name": "Sábado",
+            "startH": 15,
+            "startM": 0,
+            "durationMins": 240,
+            "endLabel": "19:00"
+        }
+    ],
+    "campanha_atual": {
+        "titulo": "PHANTOM BLADE ZERO:",
+        "subtitulo": "JORNADA SUPREMA (NG+)",
+        "lives_concluidas": [
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+        ]
+    }
+}
