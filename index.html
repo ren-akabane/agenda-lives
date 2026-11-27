@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ren Akabane (@ren_akabane) — Lives de Soulslike & Action RPG</title>
-  <meta name="description" content="Site oficial de Ren Akabane (@ren_akabane). Lives ao vivo no YouTube de Phantom Blade Zero, Onimusha, Elden Ring, Code Vein e jogos desafiadores." />
+  <meta name="description" content="Site oficial de Ren Akabane (@ren_akabane). Lives ao vivo no YouTube de Phantom Blade Zero, Black Myth: Wukong, Elden Ring, Code Vein e jogos desafiadores." />
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -227,7 +227,7 @@
             <!-- Emblema SVG Lobo Estilizado -->
             <div class="flex flex-col items-center text-center space-y-5">
               <div class="relative w-28 h-28 sm:w-32 sm:h-32 rounded-2xl bg-obsidian/90 border border-neonblue/40 flex items-center justify-center shadow-neon-blue animate-float">
-                <svg viewBox="0 0 120 120" class="w-22 h-22 sm:w-24 sm:h-24 wolf-glow" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg viewBox="0 0 120 120" class="w-20 h-20 sm:w-24 sm:h-24 wolf-glow" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <!-- Orelhas e Contorno Externo -->
                   <path d="M24 16L42 42L60 35L78 42L96 16L102 56L84 86L60 106L36 86L18 56L24 16Z" stroke="#00d2ff" stroke-width="3.5" stroke-linejoin="round" fill="rgba(0, 210, 255, 0.06)"/>
                   <!-- Detalhes Internos das Orelhas -->
@@ -433,14 +433,14 @@
 
               <!-- Opção 3: Black Myth: Wukong -->
               <button type="button" onclick="castVote('wukong')" id="vote-btn-wukong" class="w-full text-left p-3.5 rounded-xl bg-slate-900/90 border border-slate-700/80 hover:border-cyan-400/60 transition relative overflow-hidden group cursor-pointer">
-                <div id="bar-wukong" class="absolute inset-y-0 left-0 bg-cyan-500/15 transition-all duration-500" style="width: 0%;"></div>
+                <div id="bar-wukong" class="absolute inset-y-0 left-0 bg-cyan-500/15 transition-all duration-500" style="width: 34%;"></div>
                 <div class="relative z-10 flex items-center justify-between gap-2">
                   <div class="flex items-center gap-2.5 flex-wrap">
                     <i class="fa-solid fa-staff-snake text-cyan-400"></i>
                     <span class="font-tech font-bold text-white text-base">Black Myth: Wukong</span>
                     <span id="check-wukong" class="hidden text-xs px-2 py-0.5 rounded bg-cyan-400/20 text-cyan-300 font-tech font-bold">Seu voto</span>
                   </div>
-                  <span id="pct-wukong" class="font-display font-bold text-sm text-cyan-300 shrink-0">0%</span>
+                  <span id="pct-wukong" class="font-display font-bold text-sm text-cyan-300 shrink-0">34%</span>
                 </div>
               </button>
             </div>
@@ -765,12 +765,12 @@
           </div>
         </article>
 
-          <!-- Card 4: Black Myth: Wukong -->
+        <!-- Card 4: Black Myth: Wukong -->
         <article class="glass-card rounded-2xl overflow-hidden flex flex-col group">
           <div class="h-40 relative bg-gradient-to-br from-slate-900 via-cyan-950/60 to-obsidian p-5 flex flex-col justify-between overflow-hidden">
             <div class="absolute right-3 bottom-1 opacity-20 group-hover:opacity-35 transition transform group-hover:scale-110">
               <i class="fa-solid fa-staff-snake text-7xl text-cyan-400"></i>
-           </div>            
+            </div>
             <div class="flex items-center justify-between relative z-10">
               <span class="px-2.5 py-1 rounded-full bg-cyan-500/20 border border-cyan-400/35 text-cyan-300 font-tech font-bold text-[11px] uppercase tracking-wider">
                 Candidato Enquete
@@ -789,11 +789,13 @@
             <div class="flex items-center justify-between pt-3 border-t border-slate-800/80 text-xs font-tech">
               <span class="text-cyan-400 font-bold uppercase tracking-wider">Opção #3</span>
               <a href="#ciclo-atual" class="text-slate-300 hover:text-neonblue font-bold">
-               Votar &rarr;
+                Votar &rarr;
               </a>
             </div>
           </div>
         </article>
+      </div>
+    </section>
 
     <!-- 5. SETUP TÉCNICO & TRANSMISSÃO -->
     <section id="setup" class="max-w-6xl mx-auto px-4 sm:px-6 py-12">
@@ -941,6 +943,16 @@
   <!-- Scripts de Interatividade -->
   <script>
     // ==========================================
+    // 0. ARMAZENAMENTO SEGURO (localStorage pode falhar em aba anônima)
+    // ==========================================
+    function safeGet(key) {
+      try { return localStorage.getItem(key); } catch (e) { return null; }
+    }
+    function safeSet(key, value) {
+      try { localStorage.setItem(key, value); } catch (e) {}
+    }
+
+    // ==========================================
     // 1. UTILITÁRIO DE CLIPBOARD & TOAST VISUAL
     // ==========================================
     let toastTimeout;
@@ -967,13 +979,28 @@
       document.body.appendChild(textArea);
       textArea.focus();
       textArea.select();
+      let ok = false;
       try {
-        document.execCommand('copy');
-        showToast(title, message);
+        ok = document.execCommand('copy');
       } catch (err) {
         console.error('Erro ao copiar texto:', err);
       }
       document.body.removeChild(textArea);
+      if (ok) {
+        showToast(title, message);
+      } else {
+        showToast('Não foi possível copiar', 'Selecione e copie o texto manualmente.');
+      }
+      return ok;
+    }
+
+    function copyText(text, title, message) {
+      if (navigator.clipboard && window.isSecureContext) {
+        return navigator.clipboard.writeText(text)
+          .then(() => { showToast(title, message); return true; })
+          .catch(() => fallbackCopyText(text, title, message));
+      }
+      return Promise.resolve(fallbackCopyText(text, title, message));
     }
 
     function copyScheduleText() {
@@ -987,7 +1014,7 @@
         `${lines}\n` +
         `📺 YouTube: https://www.youtube.com/@ren_akabane\n` +
         `💬 Discord: https://discord.gg/8ymvd3EGn`;
-      fallbackCopyText(text, 'Horários Copiados!', 'Grade oficial atualizada pronta para colar.');
+      copyText(text, 'Horários Copiados!', 'Grade oficial atualizada pronta para colar.');
     }
 
     function copySetupSpecs() {
@@ -998,13 +1025,13 @@
         "• RAM: 32GB DDR4\n" +
         "• Áudio: Microfone Dinâmico Fifine AM8 + Mixer Fifine AmpliGame SC3\n" +
         "• Software: OBS Studio (YouTube 1080p60)";
-      fallbackCopyText(specs, 'Specs Copiadas!', 'Configurações completas do setup copiadas.');
+      copyText(specs, 'Specs Copiadas!', 'Configurações completas do setup copiadas.');
     }
 
     function copyDiscordLink() {
       const link = 'https://discord.gg/8ymvd3EGn';
       const label = document.getElementById('copy-discord-label');
-      fallbackCopyText(link, 'Copiado!', 'Convite do Discord (discord.gg/8ymvd3EGn) copiado.');
+      copyText(link, 'Copiado!', 'Convite do Discord (discord.gg/8ymvd3EGn) copiado.');
       if (label) {
         label.textContent = 'Copiado!';
         setTimeout(() => {
@@ -1076,6 +1103,8 @@
       const brt = getBrasiliaDateParts();
       const currentDay = brt.dayOfWeek;
 
+      // Limpa destaque/badge de "HOJE" de todos os cards antes de reaplicar
+      document.querySelectorAll('[id^="day-card-"]').forEach(el => el.classList.remove('ring-2', 'ring-neonblue/70'));
       document.querySelectorAll('.day-badge').forEach(el => (el.textContent = ''));
       const todayCard = document.getElementById(`day-card-${currentDay}`);
       if (todayCard) {
@@ -1176,15 +1205,15 @@
 
     function getCompletedLivesState() {
       try {
-        const saved = JSON.parse(localStorage.getItem(STORAGE_LIVES_KEY));
+        const saved = JSON.parse(safeGet(STORAGE_LIVES_KEY));
         if (Array.isArray(saved) && saved.length === 9) return saved;
       } catch (e) {}
       return [false, false, false, false, false, false, false, false, false];
     }
 
     function saveCompletedLivesState(arr) {
-      localStorage.setItem(STORAGE_LIVES_KEY, JSON.stringify(arr));
-      renderCampaignProgress();
+      safeSet(STORAGE_LIVES_KEY, JSON.stringify(arr));
+      renderCampaignProgress(arr);
     }
 
     function toggleSingleLive(index) {
@@ -1201,8 +1230,9 @@
       saveCompletedLivesState(updated);
     }
 
-    function renderCampaignProgress() {
-      const state = getCompletedLivesState();
+    // Recebe o estado diretamente para funcionar mesmo sem localStorage disponível
+    function renderCampaignProgress(stateOverride) {
+      const state = Array.isArray(stateOverride) ? stateOverride : getCompletedLivesState();
       const completedCount = state.filter(Boolean).length;
       const pct = Math.round((completedCount / 9) * 100);
       const completedHours = state.reduce((acc, done, idx) => acc + (done ? LIVE_HOURS_MAP[idx] : 0), 0);
@@ -1262,51 +1292,54 @@
     // ==========================================
     // 4. VOTAÇÃO DA COMUNIDADE (LOCALSTORAGE)
     // ==========================================
-    const BASE_VOTES = { elden: 64, codevein: 42, onimusha: 54 };
+    const VOTE_KEY = 'ren_akabane_next_game_vote';
+    const BASE_VOTES = { elden: 64, codevein: 42, wukong: 54 };
 
     const GAME_LABELS = {
       elden: 'Elden Ring (Shadow of the Erdtree)',
       codevein: 'Code Vein',
-      onimusha: 'Onimusha: Way of the Sword'
+      wukong: 'Black Myth: Wukong'
     };
 
+    const VOTE_BORDER_CLASS = {
+      elden: 'border-amber-400',
+      codevein: 'border-crimson',
+      wukong: 'border-cyan-400'
+    };
+
+    let currentUserVote = safeGet(VOTE_KEY);
+
     function renderVotes() {
-      const userVote = localStorage.getItem('ren_akabane_next_game_vote');
-      const counts = {
-        elden: BASE_VOTES.elden + (userVote === 'elden' ? 1 : 0),
-        codevein: BASE_VOTES.codevein + (userVote === 'codevein' ? 1 : 0),
-        onimusha: BASE_VOTES.onimusha + (userVote === 'onimusha' ? 1 : 0)
-      };
-      const total = counts.elden + counts.codevein + counts.onimusha;
+      const keys = Object.keys(BASE_VOTES);
+      const userVote = keys.includes(currentUserVote) ? currentUserVote : null;
 
-      const pctElden = Math.round((counts.elden / total) * 100);
-      const pctCodevein = Math.round((counts.codevein / total) * 100);
-      const pctOnimusha = 100 - pctElden - pctCodevein;
+      const counts = {};
+      keys.forEach(k => { counts[k] = BASE_VOTES[k] + (userVote === k ? 1 : 0); });
+      const total = keys.reduce((sum, k) => sum + counts[k], 0);
 
-      document.getElementById('bar-elden').style.width = `${pctElden}%`;
-      document.getElementById('bar-codevein').style.width = `${pctCodevein}%`;
-      document.getElementById('bar-onimusha').style.width = `${pctOnimusha}%`;
+      // Arredonda e deixa o último item absorver a diferença para fechar 100%
+      let acc = 0;
+      keys.forEach((k, i) => {
+        const pct = i === keys.length - 1 ? 100 - acc : Math.round((counts[k] / total) * 100);
+        acc += pct;
 
-      document.getElementById('pct-elden').textContent = `${pctElden}%`;
-      document.getElementById('pct-codevein').textContent = `${pctCodevein}%`;
-      document.getElementById('pct-onimusha').textContent = `${pctOnimusha}%`;
+        document.getElementById(`bar-${k}`).style.width = `${pct}%`;
+        document.getElementById(`pct-${k}`).textContent = `${pct}%`;
+        document.getElementById(`check-${k}`).classList.toggle('hidden', userVote !== k);
+        document.getElementById(`vote-btn-${k}`).classList.toggle(VOTE_BORDER_CLASS[k], userVote === k);
+      });
+
       document.getElementById('total-votes-badge').textContent = `${total} votos`;
 
-      document.getElementById('check-elden').classList.toggle('hidden', userVote !== 'elden');
-      document.getElementById('check-codevein').classList.toggle('hidden', userVote !== 'codevein');
-      document.getElementById('check-onimusha').classList.toggle('hidden', userVote !== 'onimusha');
-
-      document.getElementById('vote-btn-elden').classList.toggle('border-amber-400', userVote === 'elden');
-      document.getElementById('vote-btn-codevein').classList.toggle('border-crimson', userVote === 'codevein');
-      document.getElementById('vote-btn-onimusha').classList.toggle('border-cyan-400', userVote === 'onimusha');
-
-      if (userVote && GAME_LABELS[userVote]) {
+      if (userVote) {
         document.getElementById('vote-feedback').textContent = `Voto registrado em ${GAME_LABELS[userVote]}!`;
       }
     }
 
     function castVote(choice) {
-      localStorage.setItem('ren_akabane_next_game_vote', choice);
+      if (!GAME_LABELS[choice]) return;
+      currentUserVote = choice;
+      safeSet(VOTE_KEY, choice);
       renderVotes();
       showToast('Voto Registrado!', `Você votou em ${GAME_LABELS[choice]} para o próximo ciclo.`);
     }
