@@ -395,7 +395,7 @@
             </div>
 
             <div>
-              <h3 class="font-tech font-bold text-lg text-white leading-tight">
+              <h3 id="poll-question" class="font-tech font-bold text-lg text-white leading-tight">
                 Qual será o próximo ciclo após zerarmos Phantom Blade Zero?
               </h3>
               <p class="text-xs text-slate-400 mt-1">
@@ -403,47 +403,8 @@
               </p>
             </div>
 
-            <!-- Opções de Voto -->
-            <div class="space-y-3 pt-1">
-              <!-- Opção 1: Elden Ring (Shadow of the Erdtree) -->
-              <button type="button" onclick="castVote('elden')" id="vote-btn-elden" class="w-full text-left p-3.5 rounded-xl bg-slate-900/90 border border-slate-700/80 hover:border-amber-400/60 transition relative overflow-hidden group cursor-pointer">
-                <div id="bar-elden" class="absolute inset-y-0 left-0 bg-amber-500/15 transition-all duration-500" style="width: 40%;"></div>
-                <div class="relative z-10 flex items-center justify-between gap-2">
-                  <div class="flex items-center gap-2.5 flex-wrap">
-                    <i class="fa-solid fa-ring text-amber-400"></i>
-                    <span class="font-tech font-bold text-white text-base">Elden Ring <span class="text-xs text-amber-300/90 font-semibold">(Shadow of the Erdtree)</span></span>
-                    <span id="check-elden" class="hidden text-xs px-2 py-0.5 rounded bg-amber-400/20 text-amber-300 font-tech font-bold">Seu voto</span>
-                  </div>
-                  <span id="pct-elden" class="font-display font-bold text-sm text-amber-300 shrink-0">40%</span>
-                </div>
-              </button>
-
-              <!-- Opção 2: Code Vein -->
-              <button type="button" onclick="castVote('codevein')" id="vote-btn-codevein" class="w-full text-left p-3.5 rounded-xl bg-slate-900/90 border border-slate-700/80 hover:border-crimson/60 transition relative overflow-hidden group cursor-pointer">
-                <div id="bar-codevein" class="absolute inset-y-0 left-0 bg-crimson/15 transition-all duration-500" style="width: 26%;"></div>
-                <div class="relative z-10 flex items-center justify-between gap-2">
-                  <div class="flex items-center gap-2.5 flex-wrap">
-                    <i class="fa-solid fa-droplet text-crimson"></i>
-                    <span class="font-tech font-bold text-white text-base">Code Vein</span>
-                    <span id="check-codevein" class="hidden text-xs px-2 py-0.5 rounded bg-crimson/20 text-crimson font-tech font-bold">Seu voto</span>
-                  </div>
-                  <span id="pct-codevein" class="font-display font-bold text-sm text-rose-300 shrink-0">26%</span>
-                </div>
-              </button>
-
-              <!-- Opção 3: Black Myth: Wukong -->
-              <button type="button" onclick="castVote('wukong')" id="vote-btn-wukong" class="w-full text-left p-3.5 rounded-xl bg-slate-900/90 border border-slate-700/80 hover:border-cyan-400/60 transition relative overflow-hidden group cursor-pointer">
-                <div id="bar-wukong" class="absolute inset-y-0 left-0 bg-cyan-500/15 transition-all duration-500" style="width: 34%;"></div>
-                <div class="relative z-10 flex items-center justify-between gap-2">
-                  <div class="flex items-center gap-2.5 flex-wrap">
-                    <i class="fa-solid fa-staff-snake text-cyan-400"></i>
-                    <span class="font-tech font-bold text-white text-base">Black Myth: Wukong</span>
-                    <span id="check-wukong" class="hidden text-xs px-2 py-0.5 rounded bg-cyan-400/20 text-cyan-300 font-tech font-bold">Seu voto</span>
-                  </div>
-                  <span id="pct-wukong" class="font-display font-bold text-sm text-cyan-300 shrink-0">34%</span>
-                </div>
-              </button>
-            </div>
+            <!-- Opções de Voto (renderizadas via JS a partir do agenda.json) -->
+            <div id="poll-options" class="space-y-3 pt-1"></div>
 
             <div class="pt-1 flex items-center justify-between text-xs text-slate-400">
               <span id="vote-feedback">Clique em uma opção para registrar seu voto.</span>
@@ -705,95 +666,8 @@
           </div>
         </article>
 
-        <!-- Card 2: Elden Ring -->
-        <article class="glass-card rounded-2xl overflow-hidden flex flex-col group">
-          <div class="h-40 relative bg-gradient-to-br from-slate-900 via-amber-950/45 to-obsidian p-5 flex flex-col justify-between overflow-hidden">
-            <div class="absolute right-3 bottom-1 opacity-20 group-hover:opacity-35 transition transform group-hover:scale-110">
-              <i class="fa-solid fa-ring text-7xl text-amber-400"></i>
-            </div>
-            <div class="flex items-center justify-between relative z-10">
-              <span class="px-2.5 py-1 rounded-full bg-amber-500/20 border border-amber-400/40 text-amber-300 font-tech font-bold text-[11px] uppercase tracking-wider">
-                Candidato Enquete
-              </span>
-              <span class="font-tech text-[11px] font-bold text-amber-200 bg-obsidian/60 px-2 py-0.5 rounded-lg">Soulslike</span>
-            </div>
-            <div class="relative z-10">
-              <p class="font-tech text-[11px] uppercase tracking-widest text-amber-300 font-bold">Shadow of the Erdtree</p>
-              <h3 class="font-display font-extrabold text-lg text-white mt-0.5 leading-tight">ELDEN RING</h3>
-            </div>
-          </div>
-          <div class="p-4 flex-grow flex flex-col justify-between space-y-4">
-            <p class="text-xs text-slate-300 leading-relaxed">
-              Builds técnicas e duelos implacáveis contra os chefes mais desafiadores das Terras Intermédias e do Reino das Sombras.
-            </p>
-            <div class="flex items-center justify-between pt-3 border-t border-slate-800/80 text-xs font-tech">
-              <span class="text-amber-400 font-bold uppercase tracking-wider">Opção #1</span>
-              <a href="#ciclo-atual" class="text-slate-300 hover:text-neonblue font-bold">
-                Votar &rarr;
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <!-- Card 3: Code Vein -->
-        <article class="glass-card rounded-2xl overflow-hidden flex flex-col group">
-          <div class="h-40 relative bg-gradient-to-br from-slate-900 via-indigo-950/55 to-obsidian p-5 flex flex-col justify-between overflow-hidden">
-            <div class="absolute right-3 bottom-1 opacity-20 group-hover:opacity-35 transition transform group-hover:scale-110">
-              <i class="fa-solid fa-droplet text-7xl text-indigo-400"></i>
-            </div>
-            <div class="flex items-center justify-between relative z-10">
-              <span class="px-2.5 py-1 rounded-full bg-neonblue/15 border border-neonblue/35 text-neonblue font-tech font-bold text-[11px] uppercase tracking-wider">
-                Candidato Enquete
-              </span>
-              <span class="font-tech text-[11px] font-bold text-indigo-200 bg-obsidian/60 px-2 py-0.5 rounded-lg">Anime</span>
-            </div>
-            <div class="relative z-10">
-              <p class="font-tech text-[11px] uppercase tracking-widest text-indigo-300 font-bold">Anime Soulslike</p>
-              <h3 class="font-display font-extrabold text-lg text-white mt-0.5 leading-tight">CODE VEIN</h3>
-            </div>
-          </div>
-          <div class="p-4 flex-grow flex flex-col justify-between space-y-4">
-            <p class="text-xs text-slate-300 leading-relaxed">
-              Combinação dinâmica de Códigos de Sangue, esquivas precisas e chefes frenéticos em um universo anime pós-apocalíptico.
-            </p>
-            <div class="flex items-center justify-between pt-3 border-t border-slate-800/80 text-xs font-tech">
-              <span class="text-neonblue font-bold uppercase tracking-wider">Opção #2</span>
-              <a href="#ciclo-atual" class="text-slate-300 hover:text-neonblue font-bold">
-                Votar &rarr;
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <!-- Card 4: Black Myth: Wukong -->
-        <article class="glass-card rounded-2xl overflow-hidden flex flex-col group">
-          <div class="h-40 relative bg-gradient-to-br from-slate-900 via-cyan-950/60 to-obsidian p-5 flex flex-col justify-between overflow-hidden">
-            <div class="absolute right-3 bottom-1 opacity-20 group-hover:opacity-35 transition transform group-hover:scale-110">
-              <i class="fa-solid fa-staff-snake text-7xl text-cyan-400"></i>
-            </div>
-            <div class="flex items-center justify-between relative z-10">
-              <span class="px-2.5 py-1 rounded-full bg-cyan-500/20 border border-cyan-400/35 text-cyan-300 font-tech font-bold text-[11px] uppercase tracking-wider">
-                Candidato Enquete
-              </span>
-              <span class="font-tech text-[11px] font-bold text-cyan-200 bg-obsidian/60 px-2 py-0.5 rounded-lg">Action RPG</span>
-            </div>
-            <div class="relative z-10">
-              <p class="font-tech text-[11px] uppercase tracking-widest text-cyan-300 font-bold">Mythic Action &amp; Bosses</p>
-              <h3 class="font-display font-extrabold text-lg text-white mt-0.5 leading-tight">BLACK MYTH: WUKONG</h3>
-            </div>
-          </div>
-          <div class="p-4 flex-grow flex flex-col justify-between space-y-4">
-            <p class="text-xs text-slate-300 leading-relaxed">
-              Combate ágil com bastão, leitura de padrões, posturas e chefes intensos em um universo sombrio inspirado na mitologia chinesa.
-            </p>
-            <div class="flex items-center justify-between pt-3 border-t border-slate-800/80 text-xs font-tech">
-              <span class="text-cyan-400 font-bold uppercase tracking-wider">Opção #3</span>
-              <a href="#ciclo-atual" class="text-slate-300 hover:text-neonblue font-bold">
-                Votar &rarr;
-              </a>
-            </div>
-          </div>
-        </article>
+        <!-- Cards 2+: candidatos da enquete (renderizados via JS a partir do agenda.json) -->
+        <div id="catalogo-candidatos" class="contents"></div>
       </div>
     </section>
 
@@ -1290,61 +1164,145 @@
     renderCampaignProgress();
 
     // ==========================================
-    // 4. VOTAÇÃO DA COMUNIDADE (LOCALSTORAGE)
+    // 4. ENQUETE & CATÁLOGO DINÂMICOS (agenda.json -> "enquete")
     // ==========================================
     const VOTE_KEY = 'ren_akabane_next_game_vote';
-    const BASE_VOTES = { elden: 64, codevein: 42, wukong: 54 };
 
-    const GAME_LABELS = {
-      elden: 'Elden Ring (Shadow of the Erdtree)',
-      codevein: 'Code Vein',
-      wukong: 'Black Myth: Wukong'
+    // Padrão embutido (usado se o agenda.json não carregar)
+    let ENQUETE = {
+      pergunta: 'Qual será o próximo ciclo após zerarmos Phantom Blade Zero?',
+      opcoes: [
+        { id: 'elden', nome: 'Elden Ring', subtitulo: 'Shadow of the Erdtree', genero: 'Soulslike', icone: 'fa-ring', cor: 'amber', votos: 64,
+          descricao: 'Builds técnicas e duelos implacáveis contra os chefes mais desafiadores das Terras Intermédias e do Reino das Sombras.' },
+        { id: 'codevein', nome: 'Code Vein', subtitulo: 'Anime Soulslike', genero: 'Anime', icone: 'fa-droplet', cor: 'indigo', votos: 42,
+          descricao: 'Combinação dinâmica de Códigos de Sangue, esquivas precisas e chefes frenéticos em um universo anime pós-apocalíptico.' },
+        { id: 'wukong', nome: 'Black Myth: Wukong', subtitulo: 'Mythic Action & Bosses', genero: 'Action RPG', icone: 'fa-staff-snake', cor: 'cyan', votos: 54,
+          descricao: 'Combate ágil com bastão, leitura de padrões, posturas e chefes intensos em um universo sombrio inspirado na mitologia chinesa.' }
+      ]
     };
 
-    const VOTE_BORDER_CLASS = {
-      elden: 'border-amber-400',
-      codevein: 'border-crimson',
-      wukong: 'border-cyan-400'
-    };
+    const CORES_PERMITIDAS = ['amber', 'rose', 'cyan', 'indigo', 'emerald', 'violet', 'sky', 'orange', 'fuchsia'];
+
+    function theme(c) {
+      c = CORES_PERMITIDAS.includes(c) ? c : 'cyan';
+      return {
+        icon: `text-${c}-400`, bar: `bg-${c}-500/15`, hover: `hover:border-${c}-400/60`, border: `border-${c}-400`,
+        badge: `bg-${c}-400/20 text-${c}-300`, pct: `text-${c}-300`, sub: `text-${c}-300/90`,
+        tag: `bg-${c}-500/20 border border-${c}-400/40 text-${c}-300`, grad: `via-${c}-950/50`,
+        chip: `text-${c}-200`, tagline: `text-${c}-300`, foot: `text-${c}-400`
+      };
+    }
+
+    function esc(s) {
+      return String(s == null ? '' : s).replace(/[&<>"']/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]));
+    }
+
+    function iconClass(icone) {
+      const clean = String(icone || 'fa-gamepad').replace(/[^a-z0-9-]/gi, '');
+      return clean.startsWith('fa-') ? clean : 'fa-gamepad';
+    }
 
     let currentUserVote = safeGet(VOTE_KEY);
 
-    function renderVotes() {
-      const keys = Object.keys(BASE_VOTES);
-      const userVote = keys.includes(currentUserVote) ? currentUserVote : null;
+    function renderPoll() {
+      const opcoes = ENQUETE.opcoes;
+      const ids = opcoes.map(o => o.id);
+      const userVote = ids.includes(currentUserVote) ? currentUserVote : null;
+      const counts = opcoes.map(o => (Number(o.votos) || 0) + (o.id === userVote ? 1 : 0));
+      const total = counts.reduce((a, b) => a + b, 0);
 
-      const counts = {};
-      keys.forEach(k => { counts[k] = BASE_VOTES[k] + (userVote === k ? 1 : 0); });
-      const total = keys.reduce((sum, k) => sum + counts[k], 0);
+      document.getElementById('poll-question').textContent = ENQUETE.pergunta;
+      document.getElementById('total-votes-badge').textContent = `${total} votos`;
+
+      const box = document.getElementById('poll-options');
+      box.innerHTML = '';
 
       // Arredonda e deixa o último item absorver a diferença para fechar 100%
       let acc = 0;
-      keys.forEach((k, i) => {
-        const pct = i === keys.length - 1 ? 100 - acc : Math.round((counts[k] / total) * 100);
+      opcoes.forEach((o, i) => {
+        const t = theme(o.cor);
+        const pct = total === 0 ? 0 : (i === opcoes.length - 1 ? Math.max(0, 100 - acc) : Math.round((counts[i] / total) * 100));
         acc += pct;
+        const mine = o.id === userVote;
 
-        document.getElementById(`bar-${k}`).style.width = `${pct}%`;
-        document.getElementById(`pct-${k}`).textContent = `${pct}%`;
-        document.getElementById(`check-${k}`).classList.toggle('hidden', userVote !== k);
-        document.getElementById(`vote-btn-${k}`).classList.toggle(VOTE_BORDER_CLASS[k], userVote === k);
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.onclick = () => castVote(o.id);
+        btn.className = `w-full text-left p-3.5 rounded-xl bg-slate-900/90 border ${mine ? t.border : 'border-slate-700/80'} ${t.hover} transition relative overflow-hidden group cursor-pointer`;
+        btn.innerHTML =
+          `<div class="absolute inset-y-0 left-0 ${t.bar} transition-all duration-500" style="width: ${pct}%;"></div>` +
+          `<div class="relative z-10 flex items-center justify-between gap-2">` +
+            `<div class="flex items-center gap-2.5 flex-wrap">` +
+              `<i class="fa-solid ${iconClass(o.icone)} ${t.icon}"></i>` +
+              `<span class="font-tech font-bold text-white text-base">${esc(o.nome)}` +
+                (o.subtitulo ? ` <span class="text-xs ${t.sub} font-semibold">(${esc(o.subtitulo)})</span>` : '') +
+              `</span>` +
+              (mine ? `<span class="text-xs px-2 py-0.5 rounded ${t.badge} font-tech font-bold">Seu voto</span>` : '') +
+            `</div>` +
+            `<span class="font-display font-bold text-sm ${t.pct} shrink-0">${pct}%</span>` +
+          `</div>`;
+        box.appendChild(btn);
       });
 
-      document.getElementById('total-votes-badge').textContent = `${total} votos`;
-
       if (userVote) {
-        document.getElementById('vote-feedback').textContent = `Voto registrado em ${GAME_LABELS[userVote]}!`;
+        const escolhido = opcoes.find(o => o.id === userVote);
+        document.getElementById('vote-feedback').textContent = `Voto registrado em ${escolhido.nome}!`;
       }
     }
 
-    function castVote(choice) {
-      if (!GAME_LABELS[choice]) return;
-      currentUserVote = choice;
-      safeSet(VOTE_KEY, choice);
-      renderVotes();
-      showToast('Voto Registrado!', `Você votou em ${GAME_LABELS[choice]} para o próximo ciclo.`);
+    function renderCatalog() {
+      const box = document.getElementById('catalogo-candidatos');
+      if (!box) return;
+      box.innerHTML = '';
+      ENQUETE.opcoes.forEach((o, i) => {
+        const t = theme(o.cor);
+        const card = document.createElement('article');
+        card.className = 'glass-card rounded-2xl overflow-hidden flex flex-col group';
+        card.innerHTML =
+          `<div class="h-40 relative bg-gradient-to-br from-slate-900 ${t.grad} to-obsidian p-5 flex flex-col justify-between overflow-hidden">` +
+            `<div class="absolute right-3 bottom-1 opacity-20 group-hover:opacity-35 transition transform group-hover:scale-110">` +
+              `<i class="fa-solid ${iconClass(o.icone)} text-7xl ${t.icon}"></i>` +
+            `</div>` +
+            `<div class="flex items-center justify-between relative z-10">` +
+              `<span class="px-2.5 py-1 rounded-full ${t.tag} font-tech font-bold text-[11px] uppercase tracking-wider">Candidato Enquete</span>` +
+              `<span class="font-tech text-[11px] font-bold ${t.chip} bg-obsidian/60 px-2 py-0.5 rounded-lg">${esc(o.genero || 'Jogo')}</span>` +
+            `</div>` +
+            `<div class="relative z-10">` +
+              `<p class="font-tech text-[11px] uppercase tracking-widest ${t.tagline} font-bold">${esc(o.subtitulo || '')}</p>` +
+              `<h3 class="font-display font-extrabold text-lg text-white mt-0.5 leading-tight">${esc(String(o.nome).toUpperCase())}</h3>` +
+            `</div>` +
+          `</div>` +
+          `<div class="p-4 flex-grow flex flex-col justify-between space-y-4">` +
+            `<p class="text-xs text-slate-300 leading-relaxed">${esc(o.descricao || '')}</p>` +
+            `<div class="flex items-center justify-between pt-3 border-t border-slate-800/80 text-xs font-tech">` +
+              `<span class="${t.foot} font-bold uppercase tracking-wider">Opção #${i + 1}</span>` +
+              `<a href="#ciclo-atual" class="text-slate-300 hover:text-neonblue font-bold">Votar &rarr;</a>` +
+            `</div>` +
+          `</div>`;
+        box.appendChild(card);
+      });
     }
 
-    renderVotes();
+    function castVote(choice) {
+      const escolhido = ENQUETE.opcoes.find(o => o.id === choice);
+      if (!escolhido) return;
+      currentUserVote = choice;
+      safeSet(VOTE_KEY, choice);
+      renderPoll();
+      showToast('Voto Registrado!', `Você votou em ${escolhido.nome} para o próximo ciclo.`);
+    }
+
+    function applyRemotePoll(remota) {
+      if (!remota || !Array.isArray(remota.opcoes)) return;
+      const validas = remota.opcoes.filter(o => o && o.id && o.nome);
+      if (validas.length < 2) return;
+      ENQUETE = { pergunta: remota.pergunta || ENQUETE.pergunta, opcoes: validas };
+      renderPoll();
+      renderCatalog();
+    }
+
+    renderPoll();
+    renderCatalog();
 
     // ==========================================
     // 5. ALTERNÂNCIA DE ABAS DA AGENDA
@@ -1383,6 +1341,9 @@
           updateWeeklyCardsUI();
           updateStreamStatusAndCountdown();
         }
+
+        // Atualiza a enquete e os cards de candidatos
+        if (dados.enquete) applyRemotePoll(dados.enquete);
 
         // Atualiza título/subtítulo da campanha atual e progresso oficial das 9 lives
         if (dados.campanha_atual) {
